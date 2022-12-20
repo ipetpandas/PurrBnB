@@ -63,7 +63,7 @@ const addAvgRating = async(spotObject) => {
   })
 
   const average = rating[0].toJSON().avgRating
-  spotObject.avgRating = average;
+  spotObject.avgRating = Number(average.toFixed(1));
 }
 
 module.exports = router;
