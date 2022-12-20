@@ -62,7 +62,7 @@ const addAvgRating = async(spotObject) => {
     ]
   })
 
-  const average = rating[0].toJSON().avgRating
+  const average = Number(rating[0].toJSON().avgRating);
   spotObject.avgRating = Number(average.toFixed(1));
 }
 
