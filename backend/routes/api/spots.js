@@ -33,6 +33,69 @@ router.get('/', async (req, res, next) => {
 
 });
 
+// Get all Spots owned by the Current User
+router.get('/current', requireAuth, async(req, res, next) => {
+  const userId = req.user.id;
+
+  // find spots owned by user
+  const spots = await Spot.findAll({
+    where: {
+      ownerId: userId
+    }
+  })
+
+  const spotsList = [];
+
+  for (let spot of spots) {
+    // convert each spot to json
+    const spotObject = spot.toJSON();
+
+    await addAvgRating(spotObject);
+    await addPreviewImage(spotObject);
+
+    // push into new array
+    spotsList.push(spotObject)
+  }
+
+  return res.json({
+    Spots: spotsList
+  })
+});
+
+// Get details of a Spot from an id (eagerly loading)
+router.get('/:spotId', async (req, res, next) => {
+  const id = req.params.spotId
+  // const spot = await Spot.findByPk(id);
+  const spot = await Spot.findOne({
+    where: {
+      id,
+    },
+    include:
+      [
+        {
+          model: SpotImage,
+          attributes: {
+            exclude: ["createdAt", "updatedAt", "spotId"]
+          }
+        },
+        {
+          model: User,
+          attributes: ["id", "firstName", "lastName"],
+          as: "Owner"
+        }
+      ]
+  })
+  if (!spot) {
+    res.status(404);
+    res.json({
+      "message": "Spot couldn't be found",
+      "statusCode": 404
+    })
+  }
+  return res.json(spot);
+})
+
+// helper functions start here
 const addPreviewImage = async(spotObject) => {
   // find image associated to spotID
     const image = await SpotImage.findOne({
