@@ -3,7 +3,7 @@ const express = require('express')
 
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { User } = require('../../db/models');
-const { check } = require('express-validator');
+const { check, validationResult } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const { validateSignup } = require('../../utils/validators')
 
@@ -15,6 +15,24 @@ router.post(
   validateSignup,
   async (req, res) => {
     const { firstName, lastName, email, password, username } = req.body;
+
+    const validationErrors = validationResult(req);
+
+    // if body is violated
+    if (!validationErrors.isEmpty()) {
+      res.status(400);
+      const errors = validationErrors.array();
+      console.log(errors)
+      const errorsObj = {};
+      for (let error of errors) {
+        errorsObj[error.param] = error.msg;
+      }
+      return res.json({
+        "message": "Validation Error",
+        "statusCode": 400,
+        "errors": errorsObj
+      })
+    };
 
     // if email already exists in database
     const existingEmail = await User.findOne({
@@ -47,21 +65,6 @@ router.post(
         }
       })
     }
-
-    // // if email, firstName, or lastName are violated
-    // if (email === '' || firstName === '' || lastName === '') {
-    //   res.status(400);
-    //   return res.json({
-    //     "message": "Validation error",
-    //     "statusCode": 400,
-    //     "errors": {
-    //       "email": "Invalid email",
-    //       "username": "Username is required",
-    //       "firstName": "First Name is required",
-    //       "lastName": "Last Name is required"
-    //     }
-    //   })
-    // }
 
     const user = await User.signup({ firstName, lastName, email, username, password });
 

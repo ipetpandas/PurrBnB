@@ -19,7 +19,12 @@ const validateSignup = [
     .exists({ checkFalsy: true })
     .isLength({ min: 6 })
     .withMessage('Password must be 6 characters or more.'),
-  handleValidationErrors
+  check('firstName')
+    .exists({ checkFalsy: true })
+    .withMessage('First Name is required'),
+  check('lastName')
+    .exists({ checkFalsy: true })
+    .withMessage('Last Name is required')
 ];
 
 // validateSpot middleware
@@ -54,7 +59,25 @@ const validateSpot = [
     .withMessage('Price per day is required')
 ]
 
+// // validateReviews middleware
+// const validateReview = [
+
+// ]
+
+// validateBookings middleware
+const validateBooking = [
+  check('startDate')
+    .exists({ checkFalsy: true })
+    .isDate()
+    .withMessage('Start date is required'),
+  check('endDate')
+    .exists({ checkFalsy: true })
+    .isDate()
+    .withMessage('End date is required')
+]
+
 module.exports = {
   validateSignup,
-  validateSpot
+  validateSpot,
+  validateBooking,
 }
