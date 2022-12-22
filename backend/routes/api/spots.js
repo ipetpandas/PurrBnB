@@ -83,7 +83,9 @@ router.get('/', validateQuery, async (req, res, next) => {
   }
 
   return res.json({
-    Spots: spotsList
+    Spots: spotsList,
+    page,
+    size
   })
 
 });
