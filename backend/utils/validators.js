@@ -57,14 +57,21 @@ const validateSpot = [
   check('price')
     .exists({ checkFalsy: true })
     .withMessage('Price per day is required')
-]
+];
 
-// // validateReviews middleware
-// const validateReview = [
+// validateReview middleware
+const validateReview = [
+  check('review')
+    .exists({ checkFalsy: true })
+    .withMessage('Review text is required'),
+  check('stars')
+    .exists({ checkFalsy: true })
+    .isInt({ min: 0, max: 5 })
+    .withMessage('Stars must be an integer from 1 to 5'),
+  handleValidationErrors
+];
 
-// ]
-
-// validateBookings middleware
+// validateBooking middleware
 const validateBooking = [
   check('startDate')
     .exists({ checkFalsy: true })
@@ -74,10 +81,49 @@ const validateBooking = [
     .exists({ checkFalsy: true })
     .isDate()
     .withMessage('End date is required')
+];
+
+// validateQuery middleware
+const validateQuery = [
+  check('page')
+    .optional()
+    .isInt({ min: 1 })
+    .withMessage('Page must be greater than or equal to 1'),
+  check('size')
+    .optional()
+    .isInt({ min: 1 })
+    .withMessage('Size must be greater than or equal to 1'),
+  check('maxLat')
+    .isDecimal()
+    .optional()
+    .withMessage('Maximum latitude is invalid'),
+  check('minLat')
+    .isDecimal()
+    .optional()
+    .withMessage('Minimum latitude is invalid'),
+  check('minLng')
+    .isDecimal()
+    .optional()
+    .withMessage('Minimum longitude is invalid'),
+  check('maxLng')
+    .isDecimal()
+    .optional()
+    .withMessage('Maximum longitude is invalid'),
+  check('minPrice')
+    .isFloat({ min: 0 })
+    .optional()
+    .withMessage('Minimum price must be greater than or equal to 0'),
+  check('maxPrice')
+    .isFloat({ min: 0 })
+    .optional()
+    .withMessage('Maximum price must be greater than or equal to 0'),
+  handleValidationErrors
 ]
 
 module.exports = {
   validateSignup,
   validateSpot,
+  validateReview,
   validateBooking,
+  validateQuery,
 }

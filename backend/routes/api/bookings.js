@@ -23,7 +23,10 @@ router.get('/current', requireAuth, async(req, res, next) => {
         },
         include: [
           {
-            model: SpotImage
+            model: SpotImage,
+            where: {
+              preview: true
+            }
           }
         ]
       }
@@ -39,18 +42,27 @@ router.get('/current', requireAuth, async(req, res, next) => {
     bookings.push(booking.toJSON());
   });
 
-  // setting previewImage based on SpotImage
-  bookings.forEach(booking => {
-    booking.Spot.SpotImages.forEach(image => {
-      if(image.preview === true) {
-        booking.Spot.previewImage = image.url
-      } else {
-        booking.Spot.previewImage = 'No previewImage'
-      }
-    })
-    // don't need spotImages
+  for (let booking of bookings) {
+    const image = booking.Spot.SpotImages[0];
+    if (image) {
+      booking.Spot.previewImage = image.url;
+    } else {
+      booking.Spot.previewImage = "No preview image found."
+    }
     delete booking.Spot.SpotImages;
-  })
+  }
+
+  // bookings.forEach(booking => {
+  //   booking.Spot.SpotImages.forEach(image => {
+  //     if(image.preview === true) {
+  //       booking.Spot.previewImage = image.url
+  //     } else {
+  //       booking.Spot.previewImage = 'No previewImage'
+  //     }
+  //   })
+  //   // don't need spotImages
+  //   delete booking.Spot.SpotImages;
+  // })
 
   // return
   return res.json({

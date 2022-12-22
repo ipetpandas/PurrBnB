@@ -6,15 +6,67 @@ const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { Spot, User, SpotImage, Review, ReviewImage, Booking } = require('../../db/models');
 const { check, validationResult } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
-const { validateSpot, validateBooking } = require('../../utils/validators');
+const { validateSpot, validateBooking, validateReview, validateQuery } = require('../../utils/validators');
 
 const router = express.Router();
 
 // Get all Spots
-router.get('/', async (req, res, next) => {
+router.get('/', validateQuery, async (req, res, next) => {
+
+  /* query filters/pagination start here */
+  let { page, size, minLat, maxLat, minLng, maxLng, minPrice, maxPrice } = req.query;
+
+  if (!page) page = 1;
+  if (!size) size = 20;
+
+  page = parseInt(page);
+  size = parseInt(size);
+  maxLat = parseFloat(maxLat);
+  minLat = parseFloat(minLat);
+  maxLng = parseFloat(maxLng);
+  minLng = parseFloat(minLng);
+  maxPrice = parseFloat(maxPrice);
+  minPrice = parseFloat(minPrice);
+
+  let pagination = {};
+  if (page >= 1 && size >= 1) {
+    pagination.limit = size;
+    pagination.offset = size * (page - 1);
+  }
+
+  let where = {};
+
+  // lat
+  if (minLat) where.lat = {
+    [Op.gte]: minLat
+  };
+  if (maxLat) where.lat = {
+    [Op.lte]: maxLat
+  };
+
+  // lng
+  if (minLng) where.lng = {
+    [Op.gte]: minLng
+  };
+  if (maxLng) where.lng = {
+    [Op.lte]: maxLng
+  };
+
+  // price
+  if (minPrice) where.price = {
+    [Op.gte]: minPrice
+  };
+  if (maxPrice) where.price = {
+    [Op.lte]: maxPrice
+  };
+
+  /* query filters/pagination ends here */
 
   // find all spots
-  const allSpots = await Spot.findAll();
+  const allSpots = await Spot.findAll({
+    where,
+    ...pagination
+  });
 
   // store modified spots with image url
   const spotsList = [];
@@ -300,6 +352,95 @@ router.put('/:spotId', requireAuth, validateSpot, async(req, res, next) => {
     }
   }
 })
+
+/* REVIEWS START HERE */
+
+// Get all Reviews by a Spot's id
+router.get('/:spotId/reviews', async(req, res, next) => {
+  const userId = req.user.id;
+  const spotId = req.params.spotId;
+
+  const spot = await Spot.findByPk(spotId);
+
+  // Couldn't find a Spot with the specified id
+  if (!spot) {
+    res.status(404);
+    return res.json({
+      "message": "Spot couldn't be found",
+      "statusCode": 404
+    })
+  }
+
+  // query for reviews
+  const reviews = await Review.findAll({
+    where: {
+      spotId
+    },
+    include: [
+      {
+        model: User,
+        attributes: ['id', 'firstName', 'lastName']
+      },
+      {
+        model: ReviewImage,
+        attributes: ['id', 'url']
+      }
+    ]
+  })
+
+  res.json({
+    Reviews: reviews
+  })
+})
+
+// Create a Review for a Spot based on the Spot's id
+router.post('/:spotId/reviews', requireAuth, validateReview, async(req, res, next) => {
+  const userId = req.user.id;
+  const spotId = req.params.spotId;
+
+  const { review, stars } = req.body;
+
+  const spot = await Spot.findByPk(spotId);
+
+  // Couldn't find a Spot with the specified id
+  if (!spot) {
+    res.status(404);
+    return res.json({
+      "message": "Spot couldn't be found",
+      "statusCode": 404
+    })
+  }
+
+  // Review from the current user already exists for the Spot
+  const reviewed = await Review.findOne({
+    where: {
+      userId,
+      spotId
+    }
+  });
+
+  if (reviewed) {
+    res.status(403);
+    return res.json({
+      "message": "User already has a review for this spot",
+      "statusCode": 403
+    })
+  }
+
+  // Create new review
+  const newReview = await Review.create({
+    userId,
+    spotId,
+    review,
+    stars
+  });
+
+  // return
+  res.status(201);
+  return res.json(newReview);
+
+})
+
 
 /* BOOKINGS START HERE */
 
