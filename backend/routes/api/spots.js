@@ -556,11 +556,22 @@ router.post('/:spotId/bookings', requireAuth, validateBooking, async (req, res, 
         {[Op.and]: [
           {startDate: {[Op.gte]: startDate}},
           {endDate: {[Op.lte]: endDate}}
-        ]}
+        ]},
+        //                 16th             to              24th
+        // Existing  [startDate] ----------------------- [endDate]
+        //                    18th     to         23rd
+        // Requested -----[ startDate]-----------[endDate]------------
+
+        // 4th scenario -- is there an existing booking that falls completely outside the requested booking?
+        {[Op.and]: [
+          {startDate: {[Op.lte]: startDate}},
+          {endDate: {[Op.gte]: endDate}}
+        ]},
       ]
     }
   })
 
+  // console.log("FOUND BOOKING: ", booked);
   if (booked) {
     res.status(403);
     return res.json({
@@ -572,6 +583,7 @@ router.post('/:spotId/bookings', requireAuth, validateBooking, async (req, res, 
       }
     })
   }
+
 
   // create new booking
   const newBooking = await Booking.create({
