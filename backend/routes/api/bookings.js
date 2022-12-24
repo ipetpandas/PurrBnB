@@ -43,10 +43,16 @@ router.get('/current', requireAuth, async(req, res, next) => {
   });
 
   for (let booking of bookings) {
-    const image = booking.Spot.SpotImages[0];
+    // in the case where a Spot contains no spot images
+    let image;
+    if (booking.Spot) {
+      image = booking.Spot.SpotImages[0];
+    }
     if (image) {
       booking.Spot.previewImage = image.url;
     } else {
+      // if the associated booking can't get Spot info
+      booking.Spot = {};
       booking.Spot.previewImage = "No preview image found."
     }
     delete booking.Spot.SpotImages;
