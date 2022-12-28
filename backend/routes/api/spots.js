@@ -168,7 +168,7 @@ router.get('/:spotId', async (req, res, next) => {
     }
     spotObject.numReviews = reviewsList.length;
 
-    spotObject.avgStarRating = avgStarRating;
+    spotObject.avgStarRating = avgStarRating / reviewsList.length;
     return res.json(spotObject);
   }
 
@@ -534,6 +534,15 @@ router.post('/:spotId/bookings', requireAuth, validateBooking, async (req, res, 
       "errors": {
         "endDate": "endDate cannot be on or before startDate"
       }
+    })
+  }
+
+  // spot cannot be booked in the past
+  if(Date.parse(startDate) <= Date.now()) {
+    res.status(403);
+    return res.json({
+      "message": "Cannot create a booking in the past",
+      "statusCode": 403
     })
   }
 
