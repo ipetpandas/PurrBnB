@@ -1,9 +1,3 @@
-* {
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
-    "Helvetica Neue", sans-serif;
-  font-size: 14px;
-}
-
 .login-form {
   display: flex;
   flex-direction: column;
