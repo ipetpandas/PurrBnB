@@ -1,0 +1,137 @@
+// frontend/src/components/SignupFormPage/index.js
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Redirect } from "react-router-dom";
+import * as sessionActions from "../../store/session";
+import "./SignupForm.css";
+
+function SignupFormPage() {
+  const dispatch = useDispatch();
+  const sessionUser = useSelector((state) => state.session.user);
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [errors, setErrors] = useState([]);
+
+  if (sessionUser) return <Redirect to="/" />;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (password === confirmPassword) {
+      setErrors([]);
+      return dispatch(
+        sessionActions.signup({
+          email,
+          username,
+          firstName,
+          lastName,
+          password,
+        })
+      ).catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      });
+    }
+    return setErrors([
+      "Confirm Password field must be the same as the Password field",
+    ]);
+  };
+
+  return (
+    <div className="signup-form">
+      <div className="signup-form-container">
+        <header className="signup-title-wrapper">
+          <div className="signup-title">Sign Up</div>
+        </header>
+        <div className="signup-form-wrapper">
+          <div className="signup-pane">
+            <div className="welcome-wrapper">Welcome to PurrBnB</div>
+            <form onSubmit={handleSubmit}>
+              <ul>
+                {errors.map((error, idx) => (
+                  <li key={idx}>{error}</li>
+                ))}
+              </ul>
+              <div className="form-input">
+                <div className="input-box-divider">
+                  <label for="emailInput">Email</label>
+                  <input
+                    className="input-fields"
+                    type="text"
+                    value={email}
+                    placeholder="Email"
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="input-box-divider">
+                  <label for="usernameInput">Username</label>
+                  <input
+                    className="input-fields"
+                    type="text"
+                    value={username}
+                    placeholder="Username"
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="input-box-divider">
+                  <label for="firstNameInput">First Name</label>
+                  <input
+                    className="input-fields"
+                    type="text"
+                    value={firstName}
+                    placeholder="First Name"
+                    onChange={(e) => setFirstName(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="input-box-divider">
+                  <label for="lastNameInput">Last Name</label>
+                  <input
+                    className="input-fields"
+                    type="text"
+                    value={lastName}
+                    placeholder="Last Name"
+                    onChange={(e) => setLastName(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="input-box-divider">
+                  <label for="passwordInput">Password</label>
+                  <input
+                    className="input-fields"
+                    type="password"
+                    value={password}
+                    placeholder="Password"
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="confirm-password-input-box">
+                  <label for="confirmPasswordInput">Confirm Password</label>
+                  <input
+                    className="input-fields"
+                    type="password"
+                    value={confirmPassword}
+                    placeholder="Confirm Password"
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    required
+                  />
+                </div>
+              </div>
+              <button className="signup-button" type="submit">
+                <span>Sign Up</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default SignupFormPage;

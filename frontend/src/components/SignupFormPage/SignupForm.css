@@ -1,0 +1,121 @@
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+}
+
+.signup-form-container {
+  border: grey solid 1px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  margin-top: 32px;
+}
+
+.signup-title-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-bottom: 1px solid rgb(233, 233, 233);
+}
+
+.signup-title {
+  padding: 20px;
+  font-weight: bold;
+}
+
+.signup-form-wrapper {
+  display: block;
+  flex-direction: column;
+  align-items: left;
+  width: 100%;
+}
+
+.signup-pane {
+  padding: 32px;
+}
+
+.welcome-wrapper {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.form-input {
+  width: 100%;
+  border: grey solid 1px;
+  border-radius: 6px;
+}
+
+.form-input > div {
+  padding: 4px;
+}
+
+.input-box-divider {
+  border-bottom: grey solid 1px;
+}
+
+.input-box-divider,
+.confirm-password-input-box {
+  max-height: 55px;
+}
+
+.form-input input {
+  min-width: 95%;
+  padding: 10px 0px 15px 8px;
+  border: none;
+}
+
+.form-input input::placeholder {
+  position: absolute;
+  top: 3px;
+}
+
+.form-input input:focus {
+  outline: none;
+}
+
+.form-input label {
+  color: transparent;
+  margin: 0px 0px 0px 8px;
+  font-size: 14px;
+  user-select: none;
+  position: relative;
+  top: 12px;
+  transition: color 0.2s, top 0.2s, font-size 0.2s;
+}
+
+.input-box-divider:focus-within label,
+.confirm-password-input-box:focus-within label {
+  color: grey;
+  top: 2px;
+  font-size: 11px;
+}
+
+.email-input-box,
+.password-input-box {
+  max-height: 55px;
+}
+
+input.input-fields:focus::placeholder {
+  position: unset;
+}
+
+.signup-button {
+  background-color: #ff385c;
+  border: none;
+  border-radius: 6px;
+  width: 100%;
+  margin: 20px 0px;
+  padding: 15px;
+  font-weight: bold;
+  color: white;
+}
+
+.signup-button:hover {
+  cursor: pointer;
+}

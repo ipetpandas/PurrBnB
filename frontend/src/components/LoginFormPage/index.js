@@ -68,7 +68,6 @@ function LoginFormPage() {
                 </div>
               </div>
               <button className="login-button" type="submit">
-                <span className="login-button-gradient"></span>
                 <span>Log In</span>
               </button>
               <div className="or-divider-wrapper">
