@@ -32,7 +32,7 @@ function LoginFormPage() {
         </header>
         <div className="login-form-wrapper">
           <div className="login-pane">
-            <div className="welcome-wrapper">Welcome to Airbnb</div>
+            <div className="welcome-wrapper">Welcome to PurrBnB</div>
             <form onSubmit={handleSubmit}>
               <ul>
                 {errors.map((error, idx) => (

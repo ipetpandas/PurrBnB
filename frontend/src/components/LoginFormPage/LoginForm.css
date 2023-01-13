@@ -54,7 +54,7 @@
 .form-input {
   width: 100%;
   border: grey solid 1px;
-  border-radius: 10px;
+  border-radius: 6px;
 }
 
 .form-input > div {
