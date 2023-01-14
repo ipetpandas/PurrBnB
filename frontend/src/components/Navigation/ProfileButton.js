@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
 import OpenModalButton from "../OpenModalButton/";
 import LoginFormModal from "../LoginFormModal";
+import SignupFormModal from "../SignupFormModal";
 import "./ProfileButton.css";
 
 function ProfileButton({ user }) {
@@ -61,10 +62,17 @@ function ProfileButton({ user }) {
                 setShowMenu(false);
               }}
             />
+            <OpenModalButton
+              buttonText="Sign Up"
+              modalComponent={<SignupFormModal />}
+              onButtonClick={(e) => {
+                setShowMenu(false);
+              }}
+            />
 
-            <NavLink className="dropdown-links signup-modal-link" to="/signup">
+            {/* <NavLink className="dropdown-links signup-modal-link" to="/signup">
               <div>Sign Up</div>
-            </NavLink>
+            </NavLink> */}
           </div>
         </div>
       </>

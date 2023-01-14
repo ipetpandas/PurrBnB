@@ -6,6 +6,7 @@
 }
 
 .signup-form-container {
+  background-color: white;
   border: grey solid 1px;
   border-radius: 10px;
   display: flex;
@@ -13,14 +14,24 @@
   align-items: center;
   width: 500px;
   margin-top: 52px;
+  box-shadow: 0 2px 16px rgb(0 0 0 / 12%);
 }
 
 .signup-title-wrapper {
   width: 100%;
   display: flex;
+  flex-direction: row;
   align-items: center;
-  flex-direction: column;
+  justify-content: space-between;
   border-bottom: 1px solid rgb(233, 233, 233);
+}
+
+.modal-close-button {
+  position: relative;
+  left: 20px;
+  background-color: transparent;
+  outline: none;
+  border: none;
 }
 
 .signup-title {
