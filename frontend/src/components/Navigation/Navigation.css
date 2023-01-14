@@ -15,6 +15,9 @@
 
 .home-icon {
   font-size: 20px;
+  display: flex;
+  align-items: center;
+  user-select: none;
 }
 
 .home-icon a {

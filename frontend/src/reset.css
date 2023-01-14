@@ -1,11 +1,11 @@
 /*
   1. Use a more-intuitive box-sizing model.
 */
-*,
+/* *,
 *::before,
 *::after {
   box-sizing: border-box;
-}
+} */
 /*
   2. Remove default margin
 */
@@ -24,10 +24,10 @@ body {
   4. Add accessible line-height
   5. Improve text rendering
 */
-body {
+/* body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-}
+} */
 /*
   6. Improve media defaults
 */

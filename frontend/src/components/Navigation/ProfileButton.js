@@ -1,13 +1,16 @@
-// frontend/src/components/Navigation/ProfileButton.js
+// frontend/src/components/NavigationRef/ProfileButton.js
 import React, { useState, useEffect, useRef } from "react";
+import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
+import OpenModalButton from "../OpenModalButton/";
+import LoginFormModal from "../LoginFormModal";
 import "./ProfileButton.css";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
-  const ulRef = useRef();
+  const menuRef = useRef();
 
   const openMenu = () => {
     if (showMenu) return;
@@ -18,7 +21,7 @@ function ProfileButton({ user }) {
     if (!showMenu) return;
 
     const closeMenu = (e) => {
-      if (!ulRef.current.contains(e.target)) {
+      if (!menuRef.current.contains(e.target)) {
         setShowMenu(false);
       }
     };
@@ -30,26 +33,75 @@ function ProfileButton({ user }) {
 
   const logout = (e) => {
     e.preventDefault();
+    if (showMenu) setShowMenu(false);
     dispatch(sessionActions.logout());
   };
 
-  const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
+  const menuClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
 
+  if (!user) {
+    return (
+      <>
+        <button className="profile-button" onClick={openMenu}>
+          <div className="profile-button-container">
+            <i className="fa-solid fa-bars"></i>
+            <i className="fas fa-user-circle fa-xl" />
+          </div>
+        </button>
+        <div className={menuClassName} ref={menuRef}>
+          <div className="dropdown-wrapper">
+            {/* <NavLink className="dropdown-links" to="/login">
+              <div>Log In</div>
+            </NavLink> */}
+            <OpenModalButton
+              buttonText="Log In"
+              modalComponent={<LoginFormModal />}
+            />
+            <NavLink className="dropdown-links" to="/signup">
+              <div>Sign Up</div>
+            </NavLink>
+          </div>
+        </div>
+      </>
+    );
+  }
   return (
     <>
-      <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
+      <button className="profile-button" onClick={openMenu}>
+        <div className="profile-button-container">
+          <i className="fa-solid fa-bars"></i>
+          <i className="fa-solid fa-shield-cat fa-xl"></i>
+        </div>
       </button>
-      <ul className={ulClassName} ref={ulRef}>
-        <li>{user.username}</li>
-        <li>
-          {user.firstName} {user.lastName}
-        </li>
-        <li>{user.email}</li>
-        <li>
-          <button onClick={logout}>Log Out</button>
-        </li>
-      </ul>
+      <div className={menuClassName} ref={menuRef}>
+        <div className="dropdown-wrapper">
+          <div className="dropdown-user-info">
+            <p>
+              <b>{user.username}</b>
+            </p>
+            <p>
+              {user.firstName} {user.lastName}
+            </p>
+            <p>{user.email}</p>
+          </div>
+          <div className="dropdown-divider"></div>
+          <div className="dropdown-links">
+            <a href=".trips" className="dropdown-trips">
+              Trips
+            </a>
+          </div>
+          <div className="dropdown-links">
+            <a href="/spots" className="dropdown-spots">
+              Airbnb your home
+            </a>
+          </div>
+          <div className="dropdown-divider"></div>
+
+          <div className="dropdown-links">
+            <a onClick={logout}>Log Out</a>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
