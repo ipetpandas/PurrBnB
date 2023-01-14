@@ -26,7 +26,13 @@ function LoginFormModal() {
     <div className="login-form">
       <div className="login-form-container">
         <header className="login-title-wrapper">
+          <div>
+            <button className="modal-close-button" onClick={closeModal}>
+              <i className="fa-solid fa-x fa-sm"></i>
+            </button>
+          </div>
           <div className="login-title">Log in</div>
+          <div></div>
         </header>
         <div className="login-form-wrapper">
           <div className="login-pane">
@@ -39,7 +45,7 @@ function LoginFormModal() {
               </ul>
               <div className="form-input">
                 <div className="login-input-box">
-                  <label for="emailInput">Username or Email</label>
+                  <label htmlFor="emailInput">Username or Email</label>
                   <input
                     id="emailInput"
                     name="emailInput"
@@ -52,7 +58,7 @@ function LoginFormModal() {
                   />
                 </div>
                 <div className="password-input-box">
-                  <label for="passwordInput">Password</label>
+                  <label htmlFor="passwordInput">Password</label>
                   <input
                     id="passwordInput"
                     name="passwordInput"

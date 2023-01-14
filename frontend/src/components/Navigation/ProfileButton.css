@@ -38,6 +38,7 @@ button:hover {
 }
 
 .dropdown-links {
+  text-align: left;
   display: block;
   background: transparent;
   border: 0;
@@ -46,14 +47,31 @@ button:hover {
   padding: 12px 16px;
 }
 
+button.dropdown-links {
+  width: 100%;
+}
+
 .dropdown-links,
-.dropdown-links a {
+.dropdown-links a,
+.dropdown-links button {
   color: #222222;
   text-decoration: none;
 }
 
-.dropdown-links:hover {
+.dropdown-links:hover,
+button.dropdown-links:hover {
   background-color: #f7f7f7;
+}
+
+.login-modal-link:hover {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.signup-modal-link:hover,
+.logout-link {
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .dropdown-logout {

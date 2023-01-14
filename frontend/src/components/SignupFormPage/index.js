@@ -57,7 +57,7 @@ function SignupFormPage() {
               </ul>
               <div className="form-input">
                 <div className="input-box-divider">
-                  <label for="emailInput">Email</label>
+                  <label htmlFor="emailInput">Email</label>
                   <input
                     className="input-fields"
                     type="text"
@@ -68,7 +68,7 @@ function SignupFormPage() {
                   />
                 </div>
                 <div className="input-box-divider">
-                  <label for="usernameInput">Username</label>
+                  <label htmlFor="usernameInput">Username</label>
                   <input
                     className="input-fields"
                     type="text"
@@ -79,7 +79,7 @@ function SignupFormPage() {
                   />
                 </div>
                 <div className="input-box-divider">
-                  <label for="firstNameInput">First Name</label>
+                  <label htmlFor="firstNameInput">First Name</label>
                   <input
                     className="input-fields"
                     type="text"
@@ -90,7 +90,7 @@ function SignupFormPage() {
                   />
                 </div>
                 <div className="input-box-divider">
-                  <label for="lastNameInput">Last Name</label>
+                  <label htmlFor="lastNameInput">Last Name</label>
                   <input
                     className="input-fields"
                     type="text"
@@ -101,7 +101,7 @@ function SignupFormPage() {
                   />
                 </div>
                 <div className="input-box-divider">
-                  <label for="passwordInput">Password</label>
+                  <label htmlFor="passwordInput">Password</label>
                   <input
                     className="input-fields"
                     type="password"
@@ -112,7 +112,7 @@ function SignupFormPage() {
                   />
                 </div>
                 <div className="confirm-password-input-box">
-                  <label for="confirmPasswordInput">Confirm Password</label>
+                  <label htmlFor="confirmPasswordInput">Confirm Password</label>
                   <input
                     className="input-fields"
                     type="password"

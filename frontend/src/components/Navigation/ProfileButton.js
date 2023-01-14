@@ -53,11 +53,16 @@ function ProfileButton({ user }) {
             {/* <NavLink className="dropdown-links" to="/login">
               <div>Log In</div>
             </NavLink> */}
+
             <OpenModalButton
               buttonText="Log In"
               modalComponent={<LoginFormModal />}
+              onButtonClick={(e) => {
+                setShowMenu(false);
+              }}
             />
-            <NavLink className="dropdown-links" to="/signup">
+
+            <NavLink className="dropdown-links signup-modal-link" to="/signup">
               <div>Sign Up</div>
             </NavLink>
           </div>
@@ -97,7 +102,7 @@ function ProfileButton({ user }) {
           </div>
           <div className="dropdown-divider"></div>
 
-          <div className="dropdown-links">
+          <div className="dropdown-links logout-link">
             <a onClick={logout}>Log Out</a>
           </div>
         </div>
