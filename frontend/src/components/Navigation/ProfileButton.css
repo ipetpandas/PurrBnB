@@ -1,0 +1,84 @@
+.hidden {
+  display: none;
+}
+
+.profile-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 50px;
+  padding: 5px 5px 5px 12px;
+}
+
+.profile-button {
+  border: 1px solid rgb(233, 233, 233);
+  border-radius: 21px;
+  height: 42px;
+  background-color: transparent;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.profile-dropdown {
+  z-index: 1;
+  background-color: white;
+  position: absolute;
+  top: 70px;
+  right: 45px;
+  box-shadow: 0 2px 16px rgb(0 0 0 / 12%);
+  border-radius: 10px;
+  width: 200px;
+}
+
+.dropdown-user-info {
+  padding: 10px;
+  color: #222222;
+}
+
+.dropdown-links {
+  text-align: left;
+  display: block;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  margin: 0;
+  padding: 12px 16px;
+}
+
+button.dropdown-links {
+  width: 100%;
+}
+
+.dropdown-links,
+.dropdown-links a,
+.dropdown-links button {
+  color: #222222;
+  text-decoration: none;
+}
+
+.dropdown-links:hover,
+button.dropdown-links:hover {
+  background-color: #f7f7f7;
+}
+
+.login-modal-link:hover {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.signup-modal-link:hover,
+.logout-link {
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.dropdown-logout {
+  padding: 10px;
+}
+
+.dropdown-divider {
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+}

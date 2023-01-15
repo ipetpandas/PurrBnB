@@ -1,0 +1,28 @@
+.nav-parent {
+  display: flex;
+  /* position: absolute; */
+  /* width: 100vw; */
+  border-bottom: 1px solid rgb(233, 233, 233);
+  padding: 20px 0px;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 40px;
+  width: 100%;
+}
+
+.home-icon {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+
+.home-icon a {
+  color: #ff385c;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 24px;
+}
