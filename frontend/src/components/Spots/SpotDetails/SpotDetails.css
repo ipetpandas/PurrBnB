@@ -1,0 +1,43 @@
+.spot-parent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.spot-container {
+  display: flex;
+  width: 58%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.spot-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.spot-name-wrapper {
+  font-size: 26px;
+  margin-bottom: 4px;
+}
+
+.spot-details-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.star,
+.medal {
+  margin-right: 4px;
+}
+
+.dot-divider {
+  margin: -4px 8px;
+}
+
+.divider {
+  border-bottom: 1px solid rgb(221, 221, 221);
+}

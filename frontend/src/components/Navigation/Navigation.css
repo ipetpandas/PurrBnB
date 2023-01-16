@@ -1,7 +1,8 @@
 .nav-parent {
   display: flex;
   /* position: absolute; */
-  /* width: 100vw; */
+  min-width: 100vw;
+
   border-bottom: 1px solid rgb(233, 233, 233);
   padding: 20px 0px;
 }
