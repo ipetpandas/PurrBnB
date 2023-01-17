@@ -63,12 +63,13 @@ button.dropdown-links:hover {
   background-color: #f7f7f7;
 }
 
-.login-modal-link:hover {
+#login-modal-button,
+button.login-modal-link:hover {
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 }
 
-.signup-modal-link:hover,
+#signup-modal-button:hover,
 .logout-link {
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -81,4 +82,13 @@ button.dropdown-links:hover {
 .dropdown-divider {
   width: 100%;
   border-bottom: 1px solid #ddd;
+}
+
+.dropdown-spots {
+  text-decoration: none;
+}
+
+.drop-down-link-active div {
+  background-color: #f7f7f7;
+  text-decoration: none;
 }

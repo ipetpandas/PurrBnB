@@ -83,6 +83,7 @@
   min-width: 95%;
   padding: 10px 0px 15px 8px;
   border: none;
+  background-color: transparent;
 }
 
 .form-input input::placeholder {

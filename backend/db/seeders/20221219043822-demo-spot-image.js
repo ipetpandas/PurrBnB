@@ -19,11 +19,33 @@ module.exports = {
      */
     options.tableName = "SpotImages";
     return queryInterface.bulkInsert(options, [
+      // Spot 1
       {
         spotId: 1,
         url: "https://images.pexels.com/photos/57416/cat-sweet-kitty-animals-57416.jpeg",
         preview: true,
       },
+      {
+        spotId: 1,
+        url: "https://images.pexels.com/photos/57416/cat-sweet-kitty-animals-57416.jpeg",
+        preview: true,
+      },
+      {
+        spotId: 1,
+        url: "https://images.pexels.com/photos/57416/cat-sweet-kitty-animals-57416.jpeg",
+        preview: true,
+      },
+      {
+        spotId: 1,
+        url: "https://images.pexels.com/photos/57416/cat-sweet-kitty-animals-57416.jpeg",
+        preview: true,
+      },
+      {
+        spotId: 1,
+        url: "https://images.pexels.com/photos/57416/cat-sweet-kitty-animals-57416.jpeg",
+        preview: true,
+      },
+      // Spot 2
       {
         spotId: 2,
         url: "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg",
@@ -77,6 +99,11 @@ module.exports = {
       {
         spotId: 12,
         url: "https://images.pexels.com/photos/3155894/pexels-photo-3155894.jpeg",
+        preview: true,
+      },
+      {
+        spotId: 13,
+        url: "https://images.pexels.com/photos/14960687/pexels-photo-14960687.jpeg",
         preview: true,
       },
     ]);

@@ -1,3 +1,8 @@
+* {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+}
+
 .spot-parent {
   display: flex;
   flex-direction: column;
@@ -7,6 +12,8 @@
 .spot-container {
   display: flex;
   width: 58%;
+  margin-top: 90px;
+  padding-top: 24px;
   flex-direction: column;
   justify-content: space-between;
 }
@@ -20,6 +27,7 @@
 
 .spot-name-wrapper {
   font-size: 26px;
+  font-weight: bold;
   margin-bottom: 4px;
 }
 
@@ -40,4 +48,143 @@
 
 .divider {
   border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+.images {
+  padding-top: 24px;
+}
+
+.single-image-grid {
+  height: 400px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.large-preview {
+  height: inherit;
+  width: inherit;
+  object-fit: cover;
+  background-size: cover;
+  border-radius: 15px;
+}
+
+.spot-body {
+  display: flex;
+  flex-direction: row;
+  padding-top: 24px;
+}
+
+.left-body {
+  width: 58%;
+}
+
+.spot-host {
+  font-size: 22px;
+  font-weight: bold;
+  padding-bottom: 24px;
+}
+
+.spot-special-features {
+  display: flex;
+  flex-direction: column;
+  padding-top: 24px;
+}
+
+.spot-special-features h1 {
+  font-size: 16px;
+}
+
+.spot-special-features h2 {
+  font-size: 14px;
+  font-weight: 400;
+  color: #5a5a5a;
+}
+.spot-check-in {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 24px;
+}
+
+.icon {
+  margin-right: 20px;
+  margin-top: 2px;
+}
+
+.spot-superhost {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 24px;
+}
+
+.spot-cancellation {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 24px;
+}
+
+.spot-aircover {
+  padding-top: 24px;
+}
+
+.spot-aircover-title {
+  user-select: none;
+}
+
+.purrcover-1 {
+  font-size: 36px;
+  font-weight: 900;
+  color: #ff385c;
+  letter-spacing: -1px;
+}
+
+.purrcover-2 {
+  font-size: 36px;
+  font-weight: 900;
+  color: black;
+  letter-spacing: -1px;
+}
+
+.spot-aircover-info {
+  padding: 24px 0px;
+}
+
+.spot-description {
+  padding: 24px 0px;
+}
+
+.spot-date-picker {
+  padding: 24px 0px;
+}
+
+.price-parent {
+  width: 42%;
+  margin-left: 7%;
+}
+
+.price-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+}
+
+.price-header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.num {
+  font-size: 22px;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.price-header-right {
+  display: flex;
+  margin-top: 7px;
 }
