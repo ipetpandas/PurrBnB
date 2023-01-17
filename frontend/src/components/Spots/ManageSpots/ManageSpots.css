@@ -1,18 +1,90 @@
-.manage-spots {
-  margin-top: 150px;
+.manage-spots-parent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 120px;
+  padding: 20px 40px;
+}
+
+.manage-spots-header {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.manage-spots-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background: #f7f7f7;
+  border-radius: 15px;
 }
 
 .user-spot-card {
-  width: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* width: 80%; */
+  width: 800px;
   height: 200px;
-  margin-bottom: 40px;
+  padding: 20px 20px;
+  margin: 20px 20px;
+  border: 1px solid rgb(221, 221, 221);
+  background-color: white;
+  border-radius: 15px;
+}
+
+.manage-spot-left {
+  display: flex;
+  flex-direction: row;
+  width: 85%;
 }
 
 .user-spot-previewImage {
+  width: 271px;
   max-width: 271px;
   height: 100%;
   object-fit: cover;
   background-size: cover;
   border-radius: 15px;
+}
+
+.user-spot-info {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 20px;
+}
+
+.user-spot-city-state {
+  margin-bottom: 20px;
+}
+
+.user-spot-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.edit-spot-button-container button {
+  background-color: #ff385c;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  text-transform: uppercase;
+  border-radius: 10px;
+  width: 60px;
+  height: 40px;
+  text-align: center;
+}
+
+.edit-spot-button-container button:hover {
+  background-color: #ff385c;
+  border-radius: 10px;
+  height: 40px;
+  box-shadow: 2px 2px 3px 1px rgb(0 0 0 / 30%);
+}
+
+.delete-spot-button-container button:hover {
+  background-color: transparent;
+  color: #ff385c;
 }

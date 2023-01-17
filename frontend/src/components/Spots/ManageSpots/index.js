@@ -14,6 +14,7 @@ const ManageSpots = () => {
   const userSpots = useSelector((state) => state.spots.userSpots);
 
   const [loaded, setLoaded] = useState(false);
+  const [spotDeleted, setSpotDeleted] = useState(false);
 
   const redirect = () => {
     console.log("REDIRECTING FROM SETTINGS");
@@ -28,23 +29,32 @@ const ManageSpots = () => {
     if (loaded) console.log("USER SPOTS", Object.values(userSpots));
   }, [dispatch]);
 
+  useEffect(() => {
+    console.log("spot deleted", spotDeleted);
+  }, [spotDeleted]);
+
   if (!sessionUser) return <Redirect to="/" />;
 
   return (
     <>
-      <div className="manage-spots">
-        <button className="Redirect" onClick={redirect}>
+      <div className="manage-spots-parent">
+        {/* <button className="Redirect" onClick={redirect}>
           REDIRECT
-        </button>
-        MANAGE MY SPOTS
-        {loaded &&
-          Object.values(userSpots).map((userSpot) => {
-            return (
-              <div className="user-spot-card" key={userSpot.id}>
-                <UserSpotCard userSpot={userSpot} />
-              </div>
-            );
-          })}
+        </button> */}
+        <div className="manage-spots-header">Manage My Spots</div>
+        <div className="manage-spots-container">
+          {loaded &&
+            Object.values(userSpots).map((userSpot) => {
+              return (
+                <div className="user-spot-card" key={userSpot.id}>
+                  <UserSpotCard
+                    userSpot={userSpot}
+                    setSpotDeleted={setSpotDeleted}
+                  />
+                </div>
+              );
+            })}
+        </div>
       </div>
     </>
   );

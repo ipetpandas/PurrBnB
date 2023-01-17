@@ -16,7 +16,7 @@ const SpotCard = ({ spot }) => {
         className="picture"
         style={{
           backgroundImage: `url(${
-            spot.previewImage !== "No preview image found"
+            spot.previewImage !== "No preview image found."
               ? spot.previewImage
               : dummyImageUrl
           })`,

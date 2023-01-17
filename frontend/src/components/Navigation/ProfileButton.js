@@ -108,13 +108,19 @@ function ProfileButton({ user }) {
           </div>
           <OpenModalButton
             buttonId={"create-spot-modal-button"}
-            buttonText="purrBnB your Cat"
+            buttonText="purrBnB your Home"
             modalComponent={<CreateSpot />}
             onButtonClick={(e) => {
               setShowMenu(false);
             }}
           />
-          <NavLink to="/settings/manage-spots" className="dropdown-links">
+          <NavLink
+            to="/settings/manage-spots"
+            className="dropdown-links"
+            onClick={() => {
+              setShowMenu(false);
+            }}
+          >
             Manage My Spots
           </NavLink>
           <div className="dropdown-divider"></div>

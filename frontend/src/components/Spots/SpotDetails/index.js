@@ -1,31 +1,48 @@
 import React, { useEffect, useState } from "react";
 import { getSpot } from "../../../store/spots";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router";
+import { Redirect, useHistory, useParams } from "react-router";
 import SpotImages from "./SpotImages";
+import OpenModalButton from "../../OpenModalButton";
+import EditSpot from "../EditSpot";
+import DeleteSpot from "../DeleteSpot";
+import { useModal } from "../../../context/Modal";
 import "./SpotDetails.css";
 
 const Spot = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [loaded, setLoaded] = useState(false);
+  const { closeModal } = useModal();
 
   const { spotId } = useParams();
 
   const singleSpot = useSelector((state) => state.spots.spot);
+  const sessionUser = useSelector((state) => state.session.user);
 
   // image grid here
-  const spotImages = singleSpot.SpotImages;
-  const previewImage = spotImages?.find((image) => image.preview === true);
-  let nonPreviewImages = spotImages?.filter((image) => image.preview !== true);
-  nonPreviewImages = nonPreviewImages?.slice(0, 4);
+  const spotImages = singleSpot?.SpotImages;
+  const previewImages = spotImages?.filter((image) => image.preview === true);
+  let bigImage = {
+    url: "https://images.pexels.com/photos/1078850/pexels-photo-1078850.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    preview: true,
+  };
+
+  let smallImages;
+  if (previewImages?.length) {
+    if (previewImages[0].url !== "No preview image found.") {
+      bigImage = previewImages[0];
+    }
+    smallImages = previewImages.slice(1);
+  }
 
   let imageGrid;
-  if (nonPreviewImages?.length === 4) {
+  if (smallImages?.length === 4) {
     imageGrid = (
       <div className="image-grid">
-        <img className="large-preview" src={previewImage?.url} />
+        <img className="large-preview" src={bigImage.url} />
         <div className="rest-preview">
-          {nonPreviewImages?.map((image) => (
+          {smallImages.map((image) => (
             <img className="small-previews" key={image.id} src={image.url} />
           ))}
         </div>
@@ -34,7 +51,15 @@ const Spot = () => {
   } else {
     imageGrid = (
       <div className="single-image-grid">
-        <img className="large-preview" src={previewImage?.url} />
+        <img
+          className="large-preview"
+          src={
+            // previewImages[0].url !== "No preview image found."
+            //   ? previewImages[0].url
+            //   :
+            bigImage.url
+          }
+        />
       </div>
     );
   }
@@ -45,6 +70,10 @@ const Spot = () => {
     dispatch(getSpot(+spotId)).then(() => {
       setLoaded(true);
     });
+    // after a valid user deletes a spot from their spot details page, redirect back to home page
+    // if (!singleSpot) {
+    //   history.push("/");
+    // }
   }, [dispatch, spotId]);
 
   if (Object.keys(singleSpot).length) {
@@ -54,7 +83,34 @@ const Spot = () => {
           <div className="spot-parent">
             <div className="spot-container">
               <div className="spot-header">
-                <div className="spot-name-wrapper">{singleSpot.name}</div>
+                <div className="spot-name-wrapper">
+                  <span>{singleSpot.name}</span>
+                  {singleSpot.ownerId === sessionUser.id && (
+                    <div className="buttons">
+                      <div className="edit-spot-button-container">
+                        <OpenModalButton
+                          modalComponent={<EditSpot userSpot={singleSpot} />}
+                          buttonText="Edit"
+                        ></OpenModalButton>
+                      </div>
+                      <div className="delete-spot-button-container">
+                        <OpenModalButton
+                          modalComponent={
+                            <DeleteSpot
+                              userSpot={singleSpot}
+                              isFromSpotDetails={true}
+                            />
+                          }
+                          buttonText={<i className="fa-solid fa-trash"></i>}
+                          // onModalClose={() => history.push("/")}
+                          // onButtonClick={() => {
+                          //   console.log("clicking trash button");
+                          // }}
+                        ></OpenModalButton>
+                      </div>
+                    </div>
+                  )}
+                </div>
                 <div className="spot-details-wrapper">
                   <div className="rating">
                     <span className="star">

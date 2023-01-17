@@ -6,6 +6,7 @@ const LOAD_SPOT = "spots/loadSpot";
 const CREATE_SPOT = "spots/createSpot";
 const LOAD_USER_SPOTS = "spots/loadUserSpots";
 const UPDATE_USER_SPOT = "spots/updateUserSpot";
+const REMOVE_USER_SPOT = "spots/removeUserSpot";
 
 // action creators
 export const loadSpots = (spots) => {
@@ -40,6 +41,13 @@ export const updateUserSpot = (spot) => {
   return {
     type: UPDATE_USER_SPOT,
     spot,
+  };
+};
+
+export const removeSpot = (spotId) => {
+  return {
+    type: REMOVE_USER_SPOT,
+    spotId,
   };
 };
 
@@ -116,6 +124,19 @@ export const getUserSpots = (user) => async (dispatch) => {
   }
 };
 
+export const deleteSpot = (spotId) => async (dispatch) => {
+  const response = await csrfFetch(`/api/spots/${spotId}`, {
+    method: "DELETE",
+  });
+
+  if (response.ok) {
+    const deletedSpot = await response.json();
+
+    dispatch(removeSpot(spotId));
+    return deletedSpot;
+  }
+};
+
 // reducer
 const initialState = { spots: {}, spot: {} };
 
@@ -163,11 +184,27 @@ const spotsReducer = (state = initialState, action) => {
     case UPDATE_USER_SPOT:
       newState = {
         ...state,
+        spot: { ...state.spot },
         userSpots: { ...state.userSpots },
       };
-      let newSpotImage = newState.userSpots[action.spot.id].previewImage;
-      newState.userSpots[action.spot.id] = action.spot;
-      newState.userSpots[action.spot.id].previewImage = newSpotImage;
+      // { id, name, city .... }
+      Object.keys(action.spot).forEach((attribute) => {
+        newState.spot[attribute] = action.spot[attribute];
+      });
+      if (state.userSpots) {
+        let newSpotImage = newState.userSpots[action.spot.id].previewImage;
+        newState.userSpots[action.spot.id] = action.spot;
+        newState.userSpots[action.spot.id].previewImage = newSpotImage;
+      }
+      return newState;
+    case REMOVE_USER_SPOT:
+      newState = {
+        ...state,
+        spot: { ...state.spot },
+        userSpots: { ...state.userSpots },
+      };
+      newState.spot = {}; // deleting from single spot store
+      delete newState.userSpots[action.spotId]; // deleting from manage spot store
       return newState;
     default:
       return state;

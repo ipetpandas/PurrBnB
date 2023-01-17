@@ -42,16 +42,17 @@ const EditSpot = ({ userSpot }) => {
 
     let editedSpot = await dispatch(editSpot(spotToUpdate)).catch(
       async (res) => {
+        console.log("EDIT RES, ", res);
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       }
     );
 
     if (editedSpot) {
-      console.log("CLOSING MODAL");
+      // console.log("CLOSING MODAL");
       closeModal();
       history.push(`/spots/${userSpot.id}`);
-      console.log("MODAL CLOSED");
+      // console.log("MODAL CLOSED");
     }
   };
 

@@ -47,6 +47,7 @@ const CreateSpot = () => {
     });
 
     if (createdSpot) {
+      closeModal();
       history.push(`/spots/${createdSpot.id}`);
     }
   };
