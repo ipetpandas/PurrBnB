@@ -1,13 +1,13 @@
-'use strict';
+"use strict";
 
 let options = {};
-if (process.env.NODE_ENV === 'production') {
-  options.schema = process.env.SCHEMA;  // define your schema in options object
+if (process.env.NODE_ENV === "production") {
+  options.schema = process.env.SCHEMA; // define your schema in options object
 }
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     /**
      * Add seed commands here.
      *
@@ -16,33 +16,100 @@ module.exports = {
      *   name: 'John Doe',
      *   isBetaMember: false
      * }], {});
-    */
-    options.tableName = 'SpotImages';
+     */
+    options.tableName = "SpotImages";
     return queryInterface.bulkInsert(options, [
+      // Spot 1
       {
         spotId: 1,
-        url: 'https://images.pexels.com/photos/439391/pexels-photo-439391.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        preview: true
+        url: "https://images.pexels.com/photos/57416/cat-sweet-kitty-animals-57416.jpeg",
+        preview: true,
       },
       {
+        spotId: 1,
+        url: "https://images.pexels.com/photos/57416/cat-sweet-kitty-animals-57416.jpeg",
+        preview: true,
+      },
+      {
+        spotId: 1,
+        url: "https://images.pexels.com/photos/57416/cat-sweet-kitty-animals-57416.jpeg",
+        preview: true,
+      },
+      {
+        spotId: 1,
+        url: "https://images.pexels.com/photos/57416/cat-sweet-kitty-animals-57416.jpeg",
+        preview: true,
+      },
+      {
+        spotId: 1,
+        url: "https://images.pexels.com/photos/57416/cat-sweet-kitty-animals-57416.jpeg",
+        preview: true,
+      },
+      // Spot 2
+      {
         spotId: 2,
-        url: 'https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        preview: true
+        url: "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg",
+        preview: true,
       },
       {
         spotId: 3,
-        url: 'https://images.pexels.com/photos/1974596/pexels-photo-1974596.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        preview: true
+        url: "https://images.pexels.com/photos/2071873/pexels-photo-2071873.jpeg",
+        preview: true,
       },
       {
         spotId: 4,
-        url: 'https://images.pexels.com/photos/14613395/pexels-photo-14613395.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        preview: true
+        url: "https://images.pexels.com/photos/1931367/pexels-photo-1931367.jpeg",
+        preview: true,
       },
-    ])
+      {
+        spotId: 5,
+        url: "https://images.pexels.com/photos/8369034/pexels-photo-8369034.jpeg",
+        preview: true,
+      },
+      {
+        spotId: 6,
+        url: "https://i.kym-cdn.com/photos/images/original/001/505/718/136.jpg",
+        preview: true,
+      },
+      {
+        spotId: 7,
+        url: "https://images.pexels.com/photos/3616232/pexels-photo-3616232.jpeg",
+        preview: true,
+      },
+      {
+        spotId: 8,
+        url: "https://images.pexels.com/photos/127028/pexels-photo-127028.jpeg",
+        preview: true,
+      },
+      {
+        spotId: 9,
+        url: "https://images.pexels.com/photos/674572/pexels-photo-674572.jpeg",
+        preview: true,
+      },
+      {
+        spotId: 10,
+        url: "https://images.pexels.com/photos/209037/pexels-photo-209037.jpeg",
+        preview: true,
+      },
+      {
+        spotId: 11,
+        url: "https://images.pexels.com/photos/14957951/pexels-photo-14957951.jpeg",
+        preview: true,
+      },
+      {
+        spotId: 12,
+        url: "https://images.pexels.com/photos/3155894/pexels-photo-3155894.jpeg",
+        preview: true,
+      },
+      {
+        spotId: 13,
+        url: "https://images.pexels.com/photos/14960687/pexels-photo-14960687.jpeg",
+        preview: true,
+      },
+    ]);
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     /**
      * Add commands to revert seed here.
      *
@@ -50,6 +117,6 @@ module.exports = {
      * await queryInterface.bulkDelete('People', null, {});
      */
     options.tableName = "SpotImages";
-    return queryInterface.bulkDelete(options, null, {} );
-  }
+    return queryInterface.bulkDelete(options, null, {});
+  },
 };

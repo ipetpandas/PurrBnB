@@ -1,0 +1,228 @@
+* {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+}
+
+.spot-parent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.spot-container {
+  display: flex;
+  width: 58%;
+  margin-top: 90px;
+  padding-top: 24px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.spot-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.spot-name-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 4px;
+}
+
+.spot-name-wrapper span {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.spot-details-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.star,
+.medal {
+  margin-right: 4px;
+}
+
+.dot-divider {
+  margin: -4px 8px;
+}
+
+.divider {
+  border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+.images {
+  padding-top: 24px;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 5px;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.rest-preview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  row-gap: 5px;
+  column-gap: 5px;
+}
+
+.single-image-grid {
+  height: 400px;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.large-preview {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  background-size: cover;
+  /* border-top-left-radius: 10px; */
+  /* border-bottom-left-radius: 10px; */
+  /* border-radius: 15px; */
+}
+
+.small-previews {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.spot-body {
+  display: flex;
+  flex-direction: row;
+  padding-top: 24px;
+}
+
+.left-body {
+  width: 58%;
+}
+
+.spot-host {
+  font-size: 22px;
+  font-weight: bold;
+  padding-bottom: 24px;
+}
+
+.spot-special-features {
+  display: flex;
+  flex-direction: column;
+  padding-top: 24px;
+}
+
+.spot-special-features h1 {
+  font-size: 16px;
+}
+
+.spot-special-features h2 {
+  font-size: 14px;
+  font-weight: 400;
+  color: #5a5a5a;
+}
+.spot-check-in {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 24px;
+}
+
+.icon {
+  margin-right: 20px;
+  margin-top: 2px;
+}
+
+.spot-superhost {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 24px;
+}
+
+.spot-cancellation {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 24px;
+}
+
+.spot-aircover {
+  padding-top: 24px;
+}
+
+.spot-aircover-title {
+  user-select: none;
+}
+
+.purrcover-1 {
+  font-size: 36px;
+  font-weight: 900;
+  color: #ff385c;
+  letter-spacing: -1px;
+}
+
+.purrcover-2 {
+  font-size: 36px;
+  font-weight: 900;
+  color: black;
+  letter-spacing: -1px;
+}
+
+.spot-aircover-info {
+  padding: 24px 0px;
+}
+
+.spot-description {
+  padding: 24px 0px;
+}
+
+.spot-date-picker {
+  padding: 24px 0px;
+}
+
+.price-parent {
+  width: 42%;
+  margin-left: 7%;
+}
+
+.price-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+}
+
+.price-header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.num {
+  font-size: 22px;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.price-header-right {
+  display: flex;
+  margin-top: 7px;
+}

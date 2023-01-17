@@ -1,7 +1,11 @@
 .nav-parent {
   display: flex;
   /* position: absolute; */
-  /* width: 100vw; */
+  position: fixed;
+  width: 100%;
+  top: 0;
+  box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+  background-color: white;
   border-bottom: 1px solid rgb(233, 233, 233);
   padding: 20px 0px;
 }

@@ -6,6 +6,7 @@ import * as sessionActions from "../../store/session";
 import OpenModalButton from "../OpenModalButton/";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import CreateSpot from "../Spots/CreateSpot";
 import "./ProfileButton.css";
 
 function ProfileButton({ user }) {
@@ -56,6 +57,7 @@ function ProfileButton({ user }) {
             </NavLink> */}
 
             <OpenModalButton
+              buttonId={"login-modal-button"}
               buttonText="Log In"
               modalComponent={<LoginFormModal />}
               onButtonClick={(e) => {
@@ -63,6 +65,7 @@ function ProfileButton({ user }) {
               }}
             />
             <OpenModalButton
+              buttonId={"signup-modal-button"}
               buttonText="Sign Up"
               modalComponent={<SignupFormModal />}
               onButtonClick={(e) => {
@@ -103,11 +106,23 @@ function ProfileButton({ user }) {
               Trips
             </a>
           </div>
-          <div className="dropdown-links">
-            <a href="/spots" className="dropdown-spots">
-              Airbnb your home
-            </a>
-          </div>
+          <OpenModalButton
+            buttonId={"create-spot-modal-button"}
+            buttonText="purrBnB your Home"
+            modalComponent={<CreateSpot />}
+            onButtonClick={(e) => {
+              setShowMenu(false);
+            }}
+          />
+          <NavLink
+            to="/settings/manage-spots"
+            className="dropdown-links"
+            onClick={() => {
+              setShowMenu(false);
+            }}
+          >
+            Manage My Spots
+          </NavLink>
           <div className="dropdown-divider"></div>
 
           <div className="dropdown-links logout-link">

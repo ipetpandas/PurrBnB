@@ -1,0 +1,44 @@
+.spots-wrapper {
+  margin-top: 120px;
+  padding: 0px 40px;
+  display: grid;
+  grid-auto-flow: row dense;
+  grid-auto-rows: minmax(min-content, max-content);
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 40px 24px;
+}
+@media (min-width: 1639px) {
+  .spots-wrapper {
+    padding: 0px 80px;
+  }
+}
+
+@media (max-width: 1879px) {
+  .spots-wrapper {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 1439px) {
+  .spots-wrapper {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1127px) {
+  .spots-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 949px) {
+  .spots-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 549px) {
+  .spots-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
