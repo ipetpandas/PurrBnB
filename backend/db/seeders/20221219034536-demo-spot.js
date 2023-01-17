@@ -31,7 +31,7 @@ module.exports = {
           lng: -118.36,
           name: "Henry Clawvill",
           description:
-            "There's a lot to say about Henry Clawvill, but if there's anything you should know it's that he's cheerful and planful. Of course he's also aspiring, responsive and sweet, but they're often slightly tainted by a mindset of being cruel as well. His cheerfulness though, this is what he's often admired for. Friends usually count on this and his romantic nature whenever they need help.",
+            "There's a lot to say about Henry Clawvill, but if there's anything you should know it's that he's cheerful and planful.",
           price: 275,
         },
         {
@@ -44,7 +44,7 @@ module.exports = {
           lng: -117.88,
           name: "Draco Meowfoy",
           description:
-            "Plenty of people will dislike Draco Meowfoy, but the fact he's obnoxious and superficial is just the tip of the iceberg. To make matters worse he's also cynical, dishonest and monstrous, but in an odd way they're balanced by habits of being understanding as well. Fair is fair though, Draco does have some rays of light. He's honest and objective for a start, it's not like we're dealing with pure evil here. Unfortunately his superficial nature will probably never truly go away.",
+            "Plenty of people will dislike Draco Meowfoy, but the fact he's obnoxious and superficial is just the tip of the iceberg.",
           price: 370,
         },
         {
@@ -57,7 +57,7 @@ module.exports = {
           lng: -117.38,
           name: "Purrincess Peach",
           description:
-            "There's more than meets the eye in the case of Purrincess Peach, but if there's anything you should know it's that she's contemplative and patient. Of course she's also dutiful, captivating and sensitive, but in a way they're lesser traits and tained by behaviors of being thievish as well. Her contemplative nature though, this is what she's pretty much loved for. Friends usually count on this and her elegance when they're in need of support.",
+            "There's more than meets the eye in the case of Purrincess Peach, but if there's anything you should know it's that she's contemplative and patient.",
           price: 100,
         },
         {
@@ -70,7 +70,7 @@ module.exports = {
           lng: -117.69,
           name: "Cinnamon Roll",
           description:
-            "A lot can be assumed when you first see Cinnamon Roll, but above else know that he's reflective and companionably. Of course he's also exciting, modest and orderly, but they're less prominent and often intertwined with being demanding as well. Nobody's perfect of course and Cinnamon Roll has a fair share of lesser days too. His crassness and troublesome nature pose plenty of problems and reach all around. Fortunately his companionship helps keep them in check for at least a little.",
+            "A lot can be assumed when you first see Cinnamon Roll, but above else know that he's reflective and companionably.",
           price: 49,
         },
         {
@@ -83,7 +83,7 @@ module.exports = {
           lng: -118.24,
           name: "Sir Caleb Meows-A-Lot",
           description:
-            "A lot can be assumed when you first see Sir Caleb, but if there's anything you should know it's that he's sensitive and focused. Of course he's also calm, surprising and incorruptible, but in smaller doses and they're often spoiled by habits of being morbid as well. His sensitive nature though, this is what he's most popular for. People often count on this and his caring nature especially when they need comforting or support.",
+            "A lot can be assumed when you first see Sir Caleb, but if there's anything you should know it's that he's sensitive and focused.",
           price: 210,
         },
         {
@@ -96,7 +96,7 @@ module.exports = {
           lng: -117.95,
           name: "Salad Cat",
           description:
-            "There's a lot to say about Salad Cat, but the biggest two things to know are that he's courteous and aspiring. Of course he's also rational, selfless and open, but they're far less prominent, especially compared to impulses of being scornful as well. Nobody's perfect of course and Salad Cat has plenty of character faults too. His dishonesty and envy pose plenty of problems on often personal levels. Fortunately his aspirations helps lighten the blows and moods when needed.",
+            "There's a lot to say about Salad Cat, but the biggest two things to know are that he's courteous and aspiring.",
           price: 126,
         },
         {
@@ -109,7 +109,7 @@ module.exports = {
           lng: -118.49,
           name: "Anderson Pooper",
           description:
-            "Many things can be said of Anderson Pooper, but if nothing else you should know he's capable and respectful. Of course he's also creative, open and fun-loving, but those are often overshadowed by tendencies of being power-hungry as well. His capabilities though, this is what he's most well-liked for. People often count on this and his reliability when they're feeling down.",
+            "Many things can be said of Anderson Pooper, but if nothing else you should know he's capable and respectful.",
           price: 325,
         },
         {
@@ -122,7 +122,7 @@ module.exports = {
           lng: -117.93,
           name: "Isaac Mewton",
           description:
-            "TA lot can be said of Isaac Mewton, but two things you'll never forget are that he's disciplined and empathetic. Of course he's also persuasive, precise and practical, but they're in shorter supply, especially considering they're mixed with being unfriendly as well. Nobody's perfect of course and Isaac has plenty of lesser desired aspects too. His thoughtlessness and scornful nature risk ruining pleasant moods, though more on a personal level than for others. Fortunately his empathy helps make sure these days are few and far between.",
+            "TA lot can be said of Isaac Mewton, but two things you'll never forget are that he's disciplined and empathetic.",
           price: 89,
         },
         {
@@ -135,7 +135,7 @@ module.exports = {
           lng: -117.76,
           name: "George Meowshington",
           description:
-            "It takes a while to get to know George Meowshington, but the two traits most people enjoy the most are that he's protective and independent. Of course he's also elegant, dedicated and trusting, but in a way they're lesser traits and tained by behaviors of being treacherous as well. His protective nature though, this is what he's most well-liked for. Friends usually count on this and his understanding nature especially when they need comforting or support.",
+            "It takes a while to get to know George Meowshington, but the two traits most people enjoy the most are that he's protective and independent.",
           price: 126,
         },
         {
@@ -148,7 +148,7 @@ module.exports = {
           lng: -117.92,
           name: "Meowtini",
           description:
-            "A lot can be said of Meowtini, but most know that above all else he's sharing and faithful. Of course he's also courageous, planful and gracious, but these are in a way balance by being frightening as well. His sharing nature though, this is what he's pretty much loved for. Oftentimes people will count on this and his grace whenever they need help.",
+            "A lot can be said of Meowtini, but most know that above all else he's sharing and faithful.",
           price: 269,
         },
         {
@@ -161,7 +161,7 @@ module.exports = {
           lng: -118.05,
           name: "Lucifur",
           description:
-            "There's more than meets the eye in the case of Lucifur, but perhaps most important is that he's innovative and focused. Of course he's also calm, methodical and sweet, but far less strongly and often mixed with being irrational as well. Nobody's perfect of course and Lucifur has rotten moods and days too. His superficial nature and pompous nature don't make for the greatest company, both personally and for others. Fortunately his focus is usually there to soften the blows.",
+            "There's more than meets the eye in the case of Lucifur, but perhaps most important is that he's innovative and focused.",
           price: 59,
         },
         {
@@ -174,7 +174,7 @@ module.exports = {
           lng: -117.16,
           name: "RuPaw",
           description:
-            "A lot can be said of RuPaw, but the biggest two things to know are that she's curious and compassionate. Of course she's also patient, enthusiastic and amusing, but they're in shorter supply, especially considering they're mixed with being predatory as well. Her curiosity though, this is what she's often admired for. On many occasions people will count on this and her passion whenever they need cheering up.",
+            "A lot can be said of RuPaw, but the biggest two things to know are that she's curious and compassionate.",
           price: 100,
         },
         {
@@ -187,7 +187,7 @@ module.exports = {
           lng: -117.86,
           name: "Catti B",
           description:
-            "A lot can be said of Catti B, but at the very least you'll find out she's lovable and anticipative. Of course she's also adaptable, orderly and exciting, but those are often overshadowed by tendencies of being desperate as well. Her loving nature though, this is what she's most well-liked for. There are many times when friends count on this and her dedication when they're feeling down.",
+            "A lot can be said of Catti B, but at the very least you'll find out she's lovable and anticipative.",
           price: 160,
         },
       ],
