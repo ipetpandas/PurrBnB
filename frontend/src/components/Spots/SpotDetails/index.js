@@ -42,12 +42,9 @@ const Spot = () => {
 
   useEffect(() => {
     console.log(`Dispatching getSpot() with id ${spotId}`);
-    dispatch(getSpot(+spotId))
-      .then((res) => {
-        setLoaded(true);
-        return res;
-      })
-      .then((res) => console.log(res));
+    dispatch(getSpot(+spotId)).then(() => {
+      setLoaded(true);
+    });
   }, [dispatch, spotId]);
 
   if (Object.keys(singleSpot).length) {
@@ -124,7 +121,7 @@ const Spot = () => {
                         <i className="fa-solid fa-calendar fa-xl"></i>
                       </div>
                       <div className="cancellation-info">
-                        <h1>Free cancellation for 48 hours.</h1>
+                        <h1>Free cancellation for 48 hours</h1>
                       </div>
                     </div>
                     <div className="divider"></div>

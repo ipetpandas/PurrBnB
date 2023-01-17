@@ -114,6 +114,9 @@ function ProfileButton({ user }) {
               setShowMenu(false);
             }}
           />
+          <NavLink to="/settings/manage-spots" className="dropdown-links">
+            Manage My Spots
+          </NavLink>
           <div className="dropdown-divider"></div>
 
           <div className="dropdown-links logout-link">
