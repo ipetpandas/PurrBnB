@@ -85,7 +85,8 @@ const Spot = () => {
               <div className="spot-header">
                 <div className="spot-name-wrapper">
                   <span>{singleSpot.name}</span>
-                  {singleSpot.ownerId === sessionUser.id && (
+                  {/* check for user's ID only if session user exists */}
+                  {sessionUser?.id === singleSpot.ownerId && (
                     <div className="buttons">
                       <div className="edit-spot-button-container">
                         <OpenModalButton

@@ -125,9 +125,9 @@ function ProfileButton({ user }) {
           </NavLink>
           <div className="dropdown-divider"></div>
 
-          <div className="dropdown-links logout-link">
-            <a onClick={logout}>Log Out</a>
-          </div>
+          <button onClick={logout} className="dropdown-links logout-link">
+            <span>Log Out</span>
+          </button>
         </div>
       </div>
     </>

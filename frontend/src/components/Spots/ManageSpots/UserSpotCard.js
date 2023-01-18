@@ -1,13 +1,14 @@
 import OpenModalButton from "../../OpenModalButton";
 import EditSpot from "../EditSpot";
 import DeleteSpot from "../DeleteSpot";
+import { NavLink } from "react-router-dom";
 
 const UserSpotCard = ({ userSpot, setSpotDeleted }) => {
   const dummyImageUrl =
     "https://images.pexels.com/photos/1078850/pexels-photo-1078850.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
   return (
     <>
-      <div className="manage-spot-left">
+      <NavLink to={`/spots/${userSpot.id}`} className="manage-spot-left">
         <div
           className="user-spot-previewImage"
           style={{
@@ -34,7 +35,7 @@ const UserSpotCard = ({ userSpot, setSpotDeleted }) => {
             <b>${userSpot.price}</b> night
           </span>
         </div>
-      </div>
+      </NavLink>
       <div className="edit-spot-button-container">
         <OpenModalButton
           modalComponent={<EditSpot userSpot={userSpot} />}
