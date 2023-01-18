@@ -16,10 +16,10 @@ const ManageSpots = () => {
   const [loaded, setLoaded] = useState(false);
   const [spotDeleted, setSpotDeleted] = useState(false);
 
-  const redirect = () => {
-    console.log("REDIRECTING FROM SETTINGS");
-    history.push(`/spots/6`);
-  };
+  // const redirect = () => {
+  //   console.log("REDIRECTING FROM SETTINGS");
+  //   history.push(`/spots/6`);
+  // };
 
   useEffect(() => {
     console.log("Getting User Spots");

@@ -101,11 +101,20 @@ function ProfileButton({ user }) {
             <p>{user.email}</p>
           </div>
           <div className="dropdown-divider"></div>
-          <div className="dropdown-links">
+          {/* <div className="dropdown-links">
             <a href=".trips" className="dropdown-trips">
               Trips
             </a>
-          </div>
+          </div> */}
+          <NavLink
+            to="/settings/manage-bookings"
+            className="dropdown-links"
+            onClick={() => {
+              setShowMenu(false);
+            }}
+          >
+            Trips
+          </NavLink>
           <OpenModalButton
             buttonId={"create-spot-modal-button"}
             buttonText="purrBnB your Home"
