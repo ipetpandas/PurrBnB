@@ -1,0 +1,48 @@
+.dates-container {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 6px;
+  width: fit-content;
+  margin: 10px 0px;
+  /* padding: 10px; */
+}
+
+.booking-date-container-l {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-right: 1px solid rgb(221, 221, 221);
+}
+
+.booking-date-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.booking-date-container-l input,
+.booking-date-container input {
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 6px;
+  width: 90%;
+  padding: 2px;
+  margin: 5px 0px 0px;
+}
+
+.booking-header {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.create-booking-button {
+  width: 100%;
+  background-color: #ff385c;
+  border: none;
+  border-radius: 6px;
+  margin: 20px 0px 0px;
+  padding: 15px;
+  font-weight: bold;
+  color: white;
+}
