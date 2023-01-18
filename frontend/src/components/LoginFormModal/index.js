@@ -22,6 +22,18 @@ function LoginFormModal() {
       });
   };
 
+  const demoLogin = (e) => {
+    e.preventDefault();
+    return dispatch(
+      sessionActions.login({ credential: "Demo-lition", password: "password" })
+    )
+      .then(closeModal)
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      });
+  };
+
   return (
     <div className="login-form">
       <div className="login-form-container">
@@ -77,7 +89,7 @@ function LoginFormModal() {
               <div className="or-divider-wrapper">
                 <div className="or-divider">or</div>
               </div>
-              <button className="demo-button" type="submit">
+              <button className="demo-button" type="submit" onClick={demoLogin}>
                 <div className="demo-button-icon">😊</div>
                 <div>Continue as Demo User</div>
                 <div></div>
