@@ -191,7 +191,7 @@ const spotsReducer = (state = initialState, action) => {
       Object.keys(action.spot).forEach((attribute) => {
         newState.spot[attribute] = action.spot[attribute];
       });
-      if (state.userSpots) {
+      if (state.userSpots && state.userSpots[action.spot.id]) {
         let newSpotImage = newState.userSpots[action.spot.id].previewImage;
         newState.userSpots[action.spot.id] = action.spot;
         newState.userSpots[action.spot.id].previewImage = newSpotImage;

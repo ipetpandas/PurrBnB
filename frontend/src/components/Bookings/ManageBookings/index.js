@@ -24,6 +24,9 @@ const UsersBookings = () => {
     <div className="manage-bookings-parents">
       <div className="bookings-header">Upcoming Trips</div>
       <div className="bookings-container">
+        {!Object.values(bookingsObj).length && (
+          <div>YOU HAVE NO CURRENT BOOKINGS // WILL STYLE THIS LATER</div>
+        )}
         {userBookings.map((booking) => {
           return (
             <div className="user-booking-card" key={booking.id}>

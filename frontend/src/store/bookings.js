@@ -67,9 +67,11 @@ export const postBooking = (spotId, input) => async (dispatch) => {
 };
 
 export const deleteBooking = (bookingId) => async (dispatch) => {
+  console.log(`ATTEMPTING TO DELETE Booking ${bookingId} `);
   const response = await csrfFetch(`/api/bookings/${bookingId}`, {
     method: "DELETE",
   });
+  console.log(response);
 
   if (response.ok) {
     const deletedBooking = await response.json();

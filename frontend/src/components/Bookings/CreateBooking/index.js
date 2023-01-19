@@ -57,11 +57,13 @@ const CreateBookingForm = ({ singleSpot }) => {
       startDate,
       endDate,
     };
-
+    console.log("NEW BOOKING, ", newBooking);
     let createdBooking = await dispatch(postBooking(+spotId, newBooking)).catch(
       async (res) => {
         const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
+        console.log("BOOKING ERRORS, ", data.message);
+        if (data && data.message) setErrors([data.message]);
+        console.log("SET ERRORS", errors);
       }
     );
 
@@ -98,9 +100,18 @@ const CreateBookingForm = ({ singleSpot }) => {
           </div>
         </div>
         {sessionUser && (
-          <button className="create-booking-button" type="submit">
-            Reserve
-          </button>
+          <>
+            <button className="create-booking-button" type="submit">
+              Reserve
+            </button>
+            <div className="booking-errors">
+              <div>
+                {errors.map((error, idx) => (
+                  <li key={idx}>{error}</li>
+                ))}
+              </div>
+            </div>
+          </>
         )}
         {!sessionUser && (
           <div className="booking-pls-login">Log in reserve this cat</div>

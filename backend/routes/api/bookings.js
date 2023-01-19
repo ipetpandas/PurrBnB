@@ -1,16 +1,23 @@
-const express = require('express');
-const sequelize = require('sequelize');
+const express = require("express");
+const sequelize = require("sequelize");
 
-const { Op } = require('sequelize')
-const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { Spot, User, SpotImage, Review, ReviewImage, Booking } = require('../../db/models');
-const { check, validationResult } = require('express-validator');
-const { handleValidationErrors } = require('../../utils/validation');
+const { Op } = require("sequelize");
+const { setTokenCookie, requireAuth } = require("../../utils/auth");
+const {
+  Spot,
+  User,
+  SpotImage,
+  Review,
+  ReviewImage,
+  Booking,
+} = require("../../db/models");
+const { check, validationResult } = require("express-validator");
+const { handleValidationErrors } = require("../../utils/validation");
 
 const router = express.Router();
 
 // Get all of the Current User's Bookings
-router.get('/current', requireAuth, async(req, res, next) => {
+router.get("/current", requireAuth, async (req, res, next) => {
   const userId = req.user.id;
 
   // find all user's bookings
@@ -19,26 +26,26 @@ router.get('/current', requireAuth, async(req, res, next) => {
       {
         model: Spot,
         attributes: {
-          exclude: ['description', 'createdAt', 'updatedAt']
+          exclude: ["description", "createdAt", "updatedAt"],
         },
         include: [
           {
             model: SpotImage,
             where: {
-              preview: true
-            }
-          }
-        ]
-      }
+              preview: true,
+            },
+          },
+        ],
+      },
     ],
     where: {
-      userId: userId
-    }
+      userId: userId,
+    },
   });
 
   // convert each user's booking into json
   let bookings = [];
-  usersBookings.forEach(booking => {
+  usersBookings.forEach((booking) => {
     bookings.push(booking.toJSON());
   });
 
@@ -53,7 +60,7 @@ router.get('/current', requireAuth, async(req, res, next) => {
     } else {
       // if the associated booking can't get Spot info
       booking.Spot = {};
-      booking.Spot.previewImage = "No preview image found."
+      booking.Spot.previewImage = "No preview image found.";
     }
     delete booking.Spot.SpotImages;
   }
@@ -72,12 +79,12 @@ router.get('/current', requireAuth, async(req, res, next) => {
 
   // return
   return res.json({
-    Bookings: bookings
-  })
-})
+    Bookings: bookings,
+  });
+});
 
 // Edit a Booking
-router.put('/:bookingId', requireAuth, async(req, res, next) => {
+router.put("/:bookingId", requireAuth, async (req, res, next) => {
   const userId = req.user.id;
   const bookingId = req.params.bookingId;
 
@@ -86,44 +93,43 @@ router.put('/:bookingId', requireAuth, async(req, res, next) => {
   const booking = await Booking.findByPk(bookingId);
   // { userId, startDate, endDate, spotId }
 
-
   // Couldn't find a Booking with the specified id
   if (!booking) {
     res.status(404);
     return res.json({
-      "message": "Booking couldn't be found",
-      "statusCode": 404
-    })
+      message: "Booking couldn't be found",
+      statusCode: 404,
+    });
   }
 
   // endDate cannot come before startDate
   if (Date.parse(startDate) >= Date.parse(endDate)) {
     res.status(400);
     return res.json({
-      "message": "Validation error",
-      "statusCode": 400,
-      "errors": {
-        "endDate": "endDate cannot come before startDate"
-      }
-    })
+      message: "Validation error",
+      statusCode: 400,
+      errors: {
+        endDate: "endDate cannot come before startDate",
+      },
+    });
   }
 
   // can't edit a booking that's past the end date
   if (Date.parse(startDate) <= Date.now()) {
     res.status(403);
     return res.json({
-      "message": "Past bookings can't be modified",
-      "statusCode": 403
-    })
+      message: "Past bookings can't be modified",
+      statusCode: 403,
+    });
   }
 
   // if unauthorized
-  if(userId !== booking.userId) {
-    res.status(403)
+  if (userId !== booking.userId) {
+    res.status(403);
     return res.json({
-      "message": "Forbidden",
-      "statusCode": 403
-    })
+      message: "Forbidden",
+      statusCode: 403,
+    });
   }
 
   // booking conflict
@@ -135,9 +141,9 @@ router.put('/:bookingId', requireAuth, async(req, res, next) => {
       [Op.not]: { id: bookingId },
       [Op.or]: [
         // 1st scenario -- is there an existing booking that overlaps with requested startDate?
-        {startDate: {[Op.between]: [startDate, endDate]}},
+        { startDate: { [Op.between]: [startDate, endDate] } },
         // 2nd scenario -- is there an existing booking that overlaps with requested endDate?
-        {endDate: {[Op.between]: [startDate, endDate]}},
+        { endDate: { [Op.between]: [startDate, endDate] } },
 
         //                    18th     to         23rd
         // Existing -----[ startDate]-----------[endDate]------------
@@ -145,86 +151,88 @@ router.put('/:bookingId', requireAuth, async(req, res, next) => {
         // Requested  [startDate] ----------------------- [endDate]
 
         // 3rd scenario -- is there an existing booking that falls completely between the requested booking?
-        {[Op.and]: [
-          {startDate: {[Op.gte]: startDate}},
-          {endDate: {[Op.lte]: endDate}}
-        ]}
-      ]
-    }
-  })
-
-
+        {
+          [Op.and]: [
+            { startDate: { [Op.gte]: startDate } },
+            { endDate: { [Op.lte]: endDate } },
+          ],
+        },
+      ],
+    },
+  });
 
   if (booked) {
     res.status(403);
     return res.json({
-      "message": "Sorry, this spot is already booked for the specified dates",
-      "statusCode": 403,
-      "errors": {
-        "startDate": "Start date conflicts with an existing booking",
-        "endDate": "End date conflicts with an existing booking"
-      }
-    })
+      message: "Sorry, this spot is already booked for the specified dates",
+      statusCode: 403,
+      errors: {
+        startDate: "Start date conflicts with an existing booking",
+        endDate: "End date conflicts with an existing booking",
+      },
+    });
   }
 
   // booking belongs to user may edit
   if (booking.userId === userId) {
     booking.set({
       startDate,
-      endDate
-    })
+      endDate,
+    });
   }
   await booking.save();
 
   // return
   return res.json(booking);
-})
+});
 
 // Delete a Booking
-router.delete('/:bookingId', requireAuth, async(req, res, next) => {
+router.delete("/:bookingId", requireAuth, async (req, res, next) => {
   const userId = req.user.id;
   const bookingId = req.params.bookingId;
+  console.log("FORBIDDEN ERROR, ", bookingId, userId);
 
   const destroyBooking = await Booking.findByPk(bookingId);
 
   // if booking does not exist
-  if(!destroyBooking) {
+  if (!destroyBooking) {
     res.status(404);
     return res.json({
-      "message": "Booking couldn't be found",
-      "statusCode": 404
-    })
+      message: "Booking couldn't be found",
+      statusCode: 404,
+    });
   }
 
   // if unauthorized
-  if(userId !== destroyBooking.userId) {
-    res.status(403)
+  if (userId !== destroyBooking.userId) {
+    console.log("FORBIDDEN ERROR, ", destroyBooking, userId);
+    res.status(403);
     return res.json({
-      "message": "Forbidden",
-      "statusCode": 403
-    })
+      message: "Forbidden",
+      statusCode: 403,
+    });
   }
 
   // Bookings that have been started can't be deleted
   const today = new Date(new Date().toDateString()).getTime();
-  const bookDate = new Date(destroyBooking.startDate.toDateString()).getTime();
+  const bookDate = destroyBooking.startDate.getTime();
 
-  if(today >= bookDate) {
+  if (today >= bookDate) {
     res.status(403);
     return res.json({
-      "message": "Bookings that have been started can't be deleted",
-      "statusCode": 403
-    })
+      message: "Bookings that have been started can't be deleted",
+      statusCode: 403,
+    });
   }
-
 
   if (userId === destroyBooking.userId) {
     await destroyBooking.destroy();
+    res.status(200);
     return res.json({
-      "message": "Successfully deleted",
-      "statusCode": 200
-    })
+      message: "Successfully deleted",
+      statusCode: 200,
+    });
   }
-})
+});
 
 module.exports = router;
