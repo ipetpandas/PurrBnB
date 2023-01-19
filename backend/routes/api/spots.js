@@ -250,8 +250,14 @@ router.post("/:spotId/images", requireAuth, async (req, res, next) => {
   const userId = req.user.id;
   const spotId = req.params.spotId;
 
-  if (!url.includes("jpg")) {
-    url = "No preview image found.";
+  console.log("ADDING IMAGE", url);
+  console.log("Includes jpg", url.includes("jpg"));
+  console.log("Includes jpeg", url.includes("jpeg"));
+  let formattedUrl;
+  if (url.includes("jpg") || url.includes("jpeg")) {
+    formattedUrl = url;
+  } else {
+    formattedUrl = "No preview image found.";
   }
 
   const spot = await Spot.findByPk(spotId);
@@ -276,7 +282,7 @@ router.post("/:spotId/images", requireAuth, async (req, res, next) => {
 
   const spotImg = await SpotImage.build({
     spotId,
-    url,
+    url: formattedUrl,
     preview,
   });
 

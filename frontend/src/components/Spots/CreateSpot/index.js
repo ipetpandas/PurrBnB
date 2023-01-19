@@ -43,7 +43,7 @@ const CreateSpot = () => {
 
     let createdSpot = await dispatch(postSpot(newSpot)).catch(async (res) => {
       const data = await res.json();
-      if (data && data.errors) setErrors(data.errors);
+      if (data && data.errors) setErrors(Object.values(data.errors));
     });
 
     if (createdSpot) {

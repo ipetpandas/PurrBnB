@@ -35,7 +35,8 @@ function SignupFormModal() {
         .then(closeModal)
         .catch(async (res) => {
           const data = await res.json();
-          if (data && data.errors) setErrors(data.errors);
+          // console.log("ERROR DATA, ", data.errors);
+          if (data && data.errors) setErrors(Object.values(data.errors));
         });
     }
     return setErrors([
@@ -59,11 +60,11 @@ function SignupFormModal() {
           <div className="signup-pane">
             <div className="welcome-wrapper">Welcome to PurrBnB</div>
             <form onSubmit={handleSubmit}>
-              <ul>
+              <div className="signup-errors">
                 {errors.map((error, idx) => (
                   <li key={idx}>{error}</li>
                 ))}
-              </ul>
+              </div>
               <div className="form-input">
                 <div className="input-box-divider">
                   <label htmlFor="emailInput">Email</label>

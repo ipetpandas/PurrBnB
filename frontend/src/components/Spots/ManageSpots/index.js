@@ -43,6 +43,9 @@ const ManageSpots = () => {
         </button> */}
         <div className="manage-spots-header">Manage My Spots</div>
         <div className="manage-spots-container">
+          {!Object.values(userSpots).length && (
+            <div>YOU HAVE NO SPOTS CREATED // WILL STYLE THIS LATER</div>
+          )}
           {loaded &&
             Object.values(userSpots).map((userSpot) => {
               return (

@@ -44,7 +44,7 @@ const EditSpot = ({ userSpot }) => {
       async (res) => {
         console.log("EDIT RES, ", res);
         const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
+        if (data && data.errors) setErrors(Object.values(data.errors));
       }
     );
 
