@@ -265,6 +265,27 @@ const Spot = () => {
                     </div>
                     <div className="booking-body">
                       <CreateBookingForm />
+                      <div className="booking-not-charged">
+                        You won't be charged yet
+                      </div>
+                      <div className="fee-wrapper">
+                        <div className="fees">
+                          <span>per night fee</span>
+                          <span>$per night total</span>
+                        </div>
+                        <div className="fees">
+                          <span>Cleaning fee</span>
+                          <span>$cleaning price</span>
+                        </div>
+                        <div className="fees">
+                          <span>Service fee</span>
+                          <span>$service price</span>
+                        </div>
+                        <div className="fee-total">
+                          <span>Total before taxes</span>
+                          <span>$total price</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

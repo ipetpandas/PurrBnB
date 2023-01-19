@@ -41,8 +41,24 @@
   background-color: #ff385c;
   border: none;
   border-radius: 6px;
-  margin: 20px 0px 0px;
+  margin: 10px 0px 0px;
   padding: 15px;
+  font-weight: bold;
+  color: white;
+}
+
+.booking-pls-login {
+  cursor: default;
+  user-select: none;
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  background-color: grey;
+  border: none;
+  border-radius: 6px;
   font-weight: bold;
   color: white;
 }
