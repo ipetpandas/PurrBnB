@@ -105,3 +105,17 @@
 .booking-dates {
   font-weight: bold;
 }
+
+@media (max-width: 549px) {
+  .user-booking-card {
+    max-width: 284px;
+  }
+
+  .user-spot-previewImage {
+    display: none;
+  }
+
+  .booking-dates-container {
+    width: 100%;
+  }
+}

@@ -23,6 +23,7 @@ const ManageSpots = () => {
 
   useEffect(() => {
     console.log("Getting User Spots");
+    console.log(userSpots);
     dispatch(getUserSpots()).then(() => {
       setLoaded(true);
     });
@@ -46,17 +47,16 @@ const ManageSpots = () => {
           {!Object.values(userSpots).length && (
             <div>YOU HAVE NO SPOTS CREATED // WILL STYLE THIS LATER</div>
           )}
-          {loaded &&
-            Object.values(userSpots).map((userSpot) => {
-              return (
-                <div className="user-spot-card" key={userSpot.id}>
-                  <UserSpotCard
-                    userSpot={userSpot}
-                    setSpotDeleted={setSpotDeleted}
-                  />
-                </div>
-              );
-            })}
+          {Object.values(userSpots).map((userSpot) => {
+            return (
+              <div className="user-spot-card" key={userSpot.id}>
+                <UserSpotCard
+                  userSpot={userSpot}
+                  setSpotDeleted={setSpotDeleted}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     </>
