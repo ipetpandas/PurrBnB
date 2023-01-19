@@ -138,7 +138,7 @@ export const deleteSpot = (spotId) => async (dispatch) => {
 };
 
 // reducer
-const initialState = { spots: {}, spot: {} };
+const initialState = { spots: {}, spot: {}, userSpots: {} };
 
 const spotsReducer = (state = initialState, action) => {
   let newState;

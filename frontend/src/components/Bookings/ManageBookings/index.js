@@ -15,6 +15,9 @@ const UsersBookings = () => {
   // const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
+    console.log("BOOKINGS");
+    console.log(bookingsObj);
+    console.log(userBookings);
     dispatch(getUserBookings());
   }, [dispatch]);
 
