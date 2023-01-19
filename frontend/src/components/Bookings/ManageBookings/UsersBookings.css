@@ -1,0 +1,107 @@
+.manage-bookings-parents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 120px;
+  padding: 20px 40px;
+}
+
+.bookings-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f7f7f7;
+  border-radius: 15px;
+}
+
+.bookings-header {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.user-booking-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 800px;
+  height: 200px;
+  padding: 20px 20px;
+  margin: 20px 20px;
+  border: 1px solid rgb(221, 221, 221);
+  background-color: white;
+  border-radius: 15px;
+}
+
+.manage-booking-left {
+  display: flex;
+  flex-direction: row;
+  width: 85%;
+  text-decoration: none;
+  color: black;
+}
+
+.user-booking-previewImage {
+  width: 271px;
+  max-width: 271px;
+  height: 100%;
+  object-fit: cover;
+  background-size: cover;
+  border-radius: 15px;
+}
+.user-booking-info {
+  display: flex;
+  width: 350px;
+  flex-direction: column;
+  margin: 0px 20px;
+}
+
+.user-booking-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.user-booking-address {
+  font-size: 18px;
+}
+
+.user-booking-city-state {
+  font-size: 18px;
+}
+
+.booking-country {
+  font-size: 13px;
+}
+
+.booking-divider {
+  border-bottom: 1px solid rgb(221, 221, 221);
+  margin: 20px 0px;
+}
+
+.booking-dates-container {
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+}
+
+.checkin-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.checkout-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.check-header {
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.booking-dates {
+  font-weight: bold;
+}

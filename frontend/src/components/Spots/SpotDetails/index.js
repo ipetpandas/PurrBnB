@@ -8,6 +8,7 @@ import EditSpot from "../EditSpot";
 import DeleteSpot from "../DeleteSpot";
 import { useModal } from "../../../context/Modal";
 import "./SpotDetails.css";
+import CreateBookingForm from "../../Bookings/CreateBooking";
 
 const Spot = () => {
   const dispatch = useDispatch();
@@ -199,7 +200,46 @@ const Spot = () => {
                     {singleSpot.description}
                   </div>
                   <div className="divider"></div>
-                  <div className="spot-date-picker">Date picker here</div>
+                  <div className="spot-date-picker">
+                    WILL ADD DATE PICKER HERE MAYBE // TESTING STICKY POSITION
+                    FOR BOOKINGS
+                    <br></br>
+                    <br></br>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Nulla porttitor massa id neque. Lorem ipsum dolor
+                    sit amet consectetur. Dapibus ultrices in iaculis nunc sed
+                    augue. Pharetra massa massa ultricies mi quis hendrerit.
+                    Porttitor rhoncus dolor purus non enim. Feugiat scelerisque
+                    varius morbi enim. Id aliquet risus feugiat in ante metus
+                    dictum. Quis vel eros donec ac odio tempor. Hac habitasse
+                    platea dictumst quisque. Bibendum neque egestas congue
+                    quisque egestas diam in arcu. Eget velit aliquet sagittis id
+                    consectetur purus ut. Nulla facilisi cras fermentum odio eu
+                    feugiat pretium. Donec enim diam vulputate ut pharetra.
+                    Egestas pretium aenean pharetra magna ac placerat. Tempor
+                    commodo ullamcorper a lacus. Tempus egestas sed sed risus
+                    pretium quam. Viverra suspendisse potenti nullam ac tortor
+                    vitae purus faucibus ornare. Fames ac turpis egestas integer
+                    eget aliquet nibh.
+                    <br></br>
+                    <br></br>
+                    Et malesuada fames ac turpis egestas sed tempus. Adipiscing
+                    commodo elit at imperdiet. Quis commodo odio aenean sed
+                    adipiscing diam donec. Velit egestas dui id ornare arcu
+                    odio. Mauris pellentesque pulvinar pellentesque habitant
+                    morbi. Amet est placerat in egestas. Tempor nec feugiat nisl
+                    pretium fusce id velit ut tortor. Eu non diam phasellus
+                    vestibulum lorem. Faucibus et molestie ac feugiat sed lectus
+                    vestibulum mattis ullamcorper. Ultricies leo integer
+                    malesuada nunc vel risus commodo viverra. Commodo sed
+                    egestas egestas fringilla phasellus. Et molestie ac feugiat
+                    sed lectus vestibulum mattis. Nulla facilisi morbi tempus
+                    iaculis urna id. Massa tincidunt dui ut ornare lectus sit
+                    amet. Nec feugiat in fermentum posuere urna nec tincidunt.
+                    Amet tellus cras adipiscing enim. Est pellentesque elit
+                    ullamcorper dignissim cras tincidunt lobortis feugiat.
+                  </div>
                 </div>
                 <div className="price-parent">
                   <div className="price-container">
@@ -224,15 +264,7 @@ const Spot = () => {
                       </div>
                     </div>
                     <div className="booking-body">
-                      <div className="booking-form">
-                        <div className="booking-dates">
-                          <div className="booking-checkin">Check-in</div>
-                          <div className="booking-checkout">Checkout</div>
-                        </div>
-                        <button className="create-booking-button">
-                          Reserve
-                        </button>
-                      </div>
+                      <CreateBookingForm singleSpot={singleSpot} />
                     </div>
                   </div>
                 </div>

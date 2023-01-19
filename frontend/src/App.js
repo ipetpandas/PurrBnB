@@ -7,6 +7,7 @@ import AllSpots from "./components/Spots";
 import Spot from "./components/Spots/SpotDetails";
 import CreateSpot from "./components/Spots/CreateSpot";
 import ManageSpots from "./components/Spots/ManageSpots";
+import ManageBookings from "./components/Bookings/ManageBookings";
 
 function App() {
   const dispatch = useDispatch();
@@ -34,6 +35,9 @@ function App() {
           </Route>
           <Route exact path="/settings/manage-spots">
             <ManageSpots />
+          </Route>
+          <Route exact path="/settings/manage-bookings">
+            <ManageBookings />
           </Route>
         </Switch>
       )}

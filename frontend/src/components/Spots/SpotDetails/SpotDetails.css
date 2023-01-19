@@ -207,6 +207,8 @@
   border-radius: 12px;
   padding: 24px;
   box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+  position: sticky;
+  top: 150px;
 }
 
 .price-header {
