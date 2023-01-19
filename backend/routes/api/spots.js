@@ -641,7 +641,7 @@ router.post(
 
     // create new booking
     const newBooking = await Booking.create({
-      spotId,
+      spotId: +spotId,
       userId,
       startDate,
       endDate,

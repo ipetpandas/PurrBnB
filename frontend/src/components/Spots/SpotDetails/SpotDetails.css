@@ -228,28 +228,3 @@
   display: flex;
   margin-top: 7px;
 }
-
-.booking-not-charged {
-  text-align: center;
-  margin: 20px 0px 0px;
-  font-size: 13px;
-}
-
-.fee-wrapper {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.fees {
-  display: flex;
-  justify-content: space-between;
-}
-
-.fee-total {
-  display: flex;
-  justify-content: space-between;
-  border-top: 1px solid rgb(221, 221, 221);
-  padding-top: 15px;
-}

@@ -1,4 +1,6 @@
 import { NavLink } from "react-router-dom";
+import OpenModalButton from "../../OpenModalButton";
+import DeleteBooking from "../DeleteBooking";
 
 const UserBookingCard = ({ booking }) => {
   const dummyImageUrl =
@@ -41,12 +43,12 @@ const UserBookingCard = ({ booking }) => {
           </div>
         </div>
       </NavLink>
-      <div className="delete-spot-button-container">
-        {/* <OpenModalButton
-          modalComponent={<DeleteSpot userSpot={userSpot} />}
+      <div className="delete-booking-button-container">
+        <OpenModalButton
+          modalComponent={<DeleteBooking booking={booking} />}
           buttonText={<i className="fa-solid fa-trash"></i>}
           // onModalClose={() => setSpotDeleted(true)}
-        ></OpenModalButton> */}
+        ></OpenModalButton>
       </div>
     </>
   );
