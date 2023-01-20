@@ -49,9 +49,9 @@ function SignupFormModal() {
       <div className="signup-form-container">
         <header className="signup-title-wrapper">
           <div>
-            <button className="modal-close-button" onClick={closeModal}>
+            {/* <button className="modal-close-button" onClick={closeModal}>
               <i className="fa-solid fa-x fa-sm"></i>
-            </button>
+            </button> */}
           </div>
           <div className="signup-title">Sign Up</div>
           <div></div>
@@ -60,7 +60,7 @@ function SignupFormModal() {
           <div className="signup-pane">
             <div className="welcome-wrapper">Welcome to PurrBnB</div>
             <form onSubmit={handleSubmit}>
-              <div className="signup-errors">
+              <div className="errors-style">
                 {errors.map((error, idx) => (
                   <li key={idx}>{error}</li>
                 ))}

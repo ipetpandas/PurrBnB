@@ -1,4 +1,4 @@
-import React, { useRef, useState, useContext } from "react";
+import React, { useRef, useState, useContext, useEffect } from "react";
 import ReactDOM from "react-dom";
 import "./Modal.css";
 
@@ -9,6 +9,7 @@ export function ModalProvider({ children }) {
   const [modalContent, setModalContent] = useState(null);
   // callback function that will be called when modal is closing
   const [onModalClose, setOnModalClose] = useState(null);
+  const [showModal, setShowModal] = useState("");
 
   const closeModal = () => {
     setModalContent(null); // clear the modal contents
@@ -26,6 +27,8 @@ export function ModalProvider({ children }) {
     setModalContent, // function to set the React component to render inside modal
     setOnModalClose, // function to set the callback function called when modal is closing
     closeModal, // function to close the modal
+    showModal,
+    setShowModal,
   };
 
   return (
@@ -33,25 +36,36 @@ export function ModalProvider({ children }) {
       <ModalContext.Provider value={contextValue}>
         {children}
       </ModalContext.Provider>
-      <div ref={modalRef} />
+      <div className="modalDiv" ref={modalRef} />
     </>
   );
 }
 
 export function Modal() {
-  const { modalRef, modalContent, closeModal } = useContext(ModalContext);
+  const { modalRef, modalContent, closeModal, showModal, setShowModal } =
+    useContext(ModalContext);
 
-  console.log("FROM MODAL JS");
-  console.log("MODAL REF", modalRef);
-  console.log("MODAL Content", modalContent);
+  useEffect(() => {
+    setTimeout(() => setShowModal("showModal"), 5000);
+  }, [showModal]);
+
   // If there is no div referenced by the modalRef or modalContent is not a
   // truthy value, render nothing:
   if (!modalRef || !modalRef.current || !modalContent) return null;
 
   // Render the following component to the div referenced by the modalRef
   return ReactDOM.createPortal(
-    <div id="modal">
-      <div id="modal-background" onClick={closeModal} />
+    <div id="modal" className={showModal}>
+      <div
+        id="modal-background"
+        onClick={(e) => {
+          e.target.nextSibling.className = "modal-content-off";
+          e.target.className = "modal-background-off";
+          setTimeout(() => {
+            closeModal();
+          }, 700);
+        }}
+      />
       <div id="modal-content">{modalContent}</div>
     </div>,
     modalRef.current

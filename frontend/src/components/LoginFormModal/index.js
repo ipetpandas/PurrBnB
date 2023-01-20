@@ -39,9 +39,9 @@ function LoginFormModal() {
       <div className="login-form-container">
         <header className="login-title-wrapper">
           <div>
-            <button className="modal-close-button" onClick={closeModal}>
+            {/* <button className="modal-close-button" onClick={closeModal}>
               <i className="fa-solid fa-x fa-sm"></i>
-            </button>
+            </button> */}
           </div>
           <div className="login-title">Log in</div>
           <div></div>
@@ -50,11 +50,11 @@ function LoginFormModal() {
           <div className="login-pane">
             <div className="welcome-wrapper">Welcome to PurrBnB</div>
             <form onSubmit={handleSubmit}>
-              <ul>
+              <div className="errors-style">
                 {errors.map((error, idx) => (
                   <li key={idx}>{error}</li>
                 ))}
-              </ul>
+              </div>
               <div className="form-input">
                 <div className="login-input-box">
                   <label htmlFor="emailInput">Username or Email</label>

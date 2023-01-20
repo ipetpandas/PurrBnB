@@ -130,8 +130,3 @@ input.input-fields:focus::placeholder {
 .signup-button:hover {
   cursor: pointer;
 }
-
-.signup-errors {
-  color: red;
-  margin-bottom: 10px;
-}
