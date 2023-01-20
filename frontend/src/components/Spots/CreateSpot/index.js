@@ -67,11 +67,11 @@ const CreateSpot = () => {
         <div className="login-form-wrapper">
           <div className="login-pane">
             <form onSubmit={handleSubmit}>
-              <ul>
+              <div className="errors-style">
                 {errors.map((error, idx) => (
                   <li key={idx}>{error}</li>
                 ))}
-              </ul>
+              </div>
               <div className="form-input">
                 <div className="input-box-divider">
                   <label htmlFor="addressInput">Address</label>

@@ -9,3 +9,8 @@
 li {
   list-style: none;
 }
+
+.errors-style {
+  color: red;
+  margin-bottom: 10px;
+}
