@@ -32,12 +32,12 @@ PurrBnB is a full-stack web application cloned and inspired by Airbnb. The build
 ### Splash Page
 
 Users can Sign Up, Login, Log Out, and browse all spots
-<img src="https://i.imgur.com/ckVEkrw.gif">
+![img](https://i.imgur.com/ckVEkrw.gif)
 
 ### Spot Details
 
 Users can browse individual spots
-<img src="https://i.imgur.com/6cYKXik.gif">
+![img](https://i.imgur.com/6cYKXik.gif)
 
 ### Create Spot
 
