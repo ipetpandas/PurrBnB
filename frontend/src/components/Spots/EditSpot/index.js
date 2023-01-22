@@ -78,106 +78,106 @@ const EditSpot = ({ userSpot }) => {
               </div>
               <div className="form-input">
                 <div className="input-box-divider">
-                  <label htmlFor="addressInput">Address</label>
                   <input
                     className="input-fields"
                     type="text"
                     value={address}
-                    placeholder="Address"
+                    // placeholder="Address"
                     onChange={(e) => setAddress(e.target.value)}
                     required
                   />
+                  <label htmlFor="addressInput">Address</label>
                 </div>
                 <div className="input-box-divider">
-                  <label htmlFor="cityInput">City</label>
                   <input
                     className="input-fields"
                     type="text"
                     value={city}
-                    placeholder="City"
+                    // placeholder="City"
                     onChange={(e) => setCity(e.target.value)}
                     required
                   />
+                  <label htmlFor="cityInput">City</label>
                 </div>
                 <div className="input-box-divider">
-                  <label htmlFor="stateInput">State</label>
                   <input
                     className="input-fields"
                     type="text"
                     value={state}
-                    placeholder="State"
+                    // placeholder="State"
                     onChange={(e) => setState(e.target.value)}
                     required
                   />
+                  <label htmlFor="stateInput">State</label>
                 </div>
                 <div className="input-box-divider">
-                  <label htmlFor="countryInput">Country</label>
                   <input
                     className="input-fields"
                     type="text"
                     value={country}
-                    placeholder="Country"
+                    // placeholder="Country"
                     onChange={(e) => setCountry(e.target.value)}
                     required
                   />
+                  <label htmlFor="countryInput">Country</label>
                 </div>
                 <div className="input-box-divider">
-                  <label htmlFor="latInput">Latitude</label>
                   <input
                     className="input-fields"
                     type="number"
                     value={lat}
-                    placeholder="Latitude"
+                    // placeholder="Latitude"
                     onChange={(e) => setLat(e.target.value)}
                     required
                   />
+                  <label htmlFor="latInput">Latitude</label>
                 </div>
                 <div className="input-box-divider">
-                  <label htmlFor="lngInput">Longitude</label>
                   <input
                     className="input-fields"
                     type="number"
                     value={lng}
-                    placeholder="Longitude"
+                    // placeholder="Longitude"
                     onChange={(e) => setLng(e.target.value)}
                     required
                   />
+                  <label htmlFor="lngInput">Longitude</label>
                 </div>
                 <div className="input-box-divider">
-                  <label htmlFor="nameInput">Cat's Name</label>
                   <input
                     className="input-fields"
                     type="text"
                     value={name}
-                    placeholder="Cat's Name"
+                    // placeholder="Cat's Name"
                     onChange={(e) => setName(e.target.value)}
                     required
                   />
+                  <label htmlFor="nameInput">Cat's Name</label>
                 </div>
                 <div className="input-box-divider">
-                  <label htmlFor="priceInput">Price</label>
                   <input
                     className="input-fields"
                     type="number"
                     value={price}
-                    placeholder="Price"
+                    // placeholder="Price"
                     onChange={(e) => setPrice(e.target.value)}
                     required
                   />
+                  <label htmlFor="priceInput">Price</label>
                 </div>
-                <div className="password-input-box">
-                  <label htmlFor="descriptionInput">Description</label>
-                  <input
-                    className="input-fields"
+                <div className="input-box-end">
+                  <textarea
+                    className="input-textarea"
                     type="text"
                     value={description}
-                    placeholder="Description"
+                    // placeholder="Description"
                     onChange={(e) => setDescription(e.target.value)}
                     required
                   />
+                  <label htmlFor="descriptionInput">Description</label>
                 </div>
               </div>
-              <button className="login-button" type="submit">
+              <button className="form-button" type="submit">
                 <span>Save and Submit</span>
               </button>
             </form>

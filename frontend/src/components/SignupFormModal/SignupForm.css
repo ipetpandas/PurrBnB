@@ -56,41 +56,41 @@
   margin-bottom: 8px;
 }
 
-.form-input {
+/* .form-input {
   width: 100%;
   border: grey solid 1px;
   border-radius: 6px;
-}
+} */
 
-.form-input > div {
+/* .form-input > div {
   padding: 4px;
-}
+} */
 
-.input-box-divider {
+/* .input-box-divider {
   border-bottom: grey solid 1px;
-}
+} */
 
-.input-box-divider,
+/* .input-box-divider,
 .confirm-password-input-box {
   max-height: 55px;
-}
+} */
 
-.form-input input {
+/* .form-input input {
   min-width: 95%;
   padding: 10px 0px 15px 8px;
   border: none;
-}
+} */
 
-.form-input input::placeholder {
+/* .form-input input::placeholder {
   position: absolute;
   top: 3px;
-}
+} */
 
-.form-input input:focus {
+/* .form-input input:focus {
   outline: none;
-}
+} */
 
-.form-input label {
+/* .form-input label {
   color: transparent;
   margin: 0px 0px 0px 8px;
   font-size: 14px;
@@ -98,25 +98,25 @@
   position: relative;
   top: 12px;
   transition: color 0.2s, top 0.2s, font-size 0.2s;
-}
+} */
 
-.input-box-divider:focus-within label,
+/* .input-box-divider:focus-within label,
 .confirm-password-input-box:focus-within label {
   color: grey;
   top: 2px;
   font-size: 11px;
-}
+} */
 
-.email-input-box,
+/* .email-input-box,
 .password-input-box {
   max-height: 55px;
-}
+} */
 
-input.input-fields:focus::placeholder {
+/* input.input-fields:focus::placeholder {
   position: unset;
-}
+} */
 
-.signup-button {
+/* .signup-button {
   background-color: #ff385c;
   border: none;
   border-radius: 6px;
@@ -125,8 +125,8 @@ input.input-fields:focus::placeholder {
   padding: 15px;
   font-weight: bold;
   color: white;
-}
+} */
 
-.signup-button:hover {
+/* .signup-button:hover {
   cursor: pointer;
-}
+} */

@@ -67,73 +67,73 @@ function SignupFormModal() {
               </div>
               <div className="form-input">
                 <div className="input-box-divider">
-                  <label htmlFor="emailInput">Email</label>
                   <input
                     className="input-fields"
                     type="text"
                     value={email}
-                    placeholder="Email"
+                    // placeholder="Email"
                     onChange={(e) => setEmail(e.target.value)}
                     required
                   />
+                  <label htmlFor="emailInput">Email</label>
                 </div>
                 <div className="input-box-divider">
-                  <label htmlFor="usernameInput">Username</label>
                   <input
                     className="input-fields"
                     type="text"
                     value={username}
-                    placeholder="Username"
+                    // placeholder="Username"
                     onChange={(e) => setUsername(e.target.value)}
                     required
                   />
+                  <label htmlFor="usernameInput">Username</label>
                 </div>
                 <div className="input-box-divider">
-                  <label htmlFor="firstNameInput">First Name</label>
                   <input
                     className="input-fields"
                     type="text"
                     value={firstName}
-                    placeholder="First Name"
+                    // placeholder="First Name"
                     onChange={(e) => setFirstName(e.target.value)}
                     required
                   />
+                  <label htmlFor="firstNameInput">First Name</label>
                 </div>
                 <div className="input-box-divider">
-                  <label htmlFor="lastNameInput">Last Name</label>
                   <input
                     className="input-fields"
                     type="text"
                     value={lastName}
-                    placeholder="Last Name"
+                    // placeholder="Last Name"
                     onChange={(e) => setLastName(e.target.value)}
                     required
                   />
+                  <label htmlFor="lastNameInput">Last Name</label>
                 </div>
                 <div className="input-box-divider">
-                  <label htmlFor="passwordInput">Password</label>
                   <input
                     className="input-fields"
                     type="password"
                     value={password}
-                    placeholder="Password"
+                    // placeholder="Password"
                     onChange={(e) => setPassword(e.target.value)}
                     required
                   />
+                  <label htmlFor="passwordInput">Password</label>
                 </div>
-                <div className="confirm-password-input-box">
-                  <label htmlFor="confirmPasswordInput">Confirm Password</label>
+                <div className="input-box-end">
                   <input
                     className="input-fields"
                     type="password"
                     value={confirmPassword}
-                    placeholder="Confirm Password"
+                    // placeholder="Confirm Password"
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     required
                   />
+                  <label htmlFor="confirmPasswordInput">Confirm Password</label>
                 </div>
               </div>
-              <button className="signup-button" type="submit">
+              <button className="form-button" type="submit">
                 <span>Sign Up</span>
               </button>
             </form>

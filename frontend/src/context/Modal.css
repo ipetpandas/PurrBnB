@@ -29,7 +29,8 @@
 }
 
 #modal-content {
-  max-height: 85vh;
+  /* max-height: 85vh; */
+  max-height: 95vh;
   overflow-y: hidden;
   position: absolute;
   border-radius: 10px;
