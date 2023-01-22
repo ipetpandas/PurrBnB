@@ -61,9 +61,9 @@ const EditSpot = ({ userSpot }) => {
       <div className="login-form-container">
         <header className="login-title-wrapper">
           <div>
-            <button className="modal-close-button" onClick={closeModal}>
+            {/* <button className="modal-close-button" onClick={closeModal}>
               <i className="fa-solid fa-x fa-sm"></i>
-            </button>
+            </button> */}
           </div>
           <div className="login-title">Edit your cat</div>
           <div></div>
