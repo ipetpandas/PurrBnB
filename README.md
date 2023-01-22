@@ -34,6 +34,73 @@ PurrBnB is a full-stack web application cloned and inspired by Airbnb. The build
 Users can Sign Up, Login, Log Out, and browse all spots
 <img src="https://i.imgur.com/ckVEkrw.gif">
 
+### Spot Details
+
+Users can browse individual spots
+<img src="https://i.imgur.com/6cYKXik.gif">
+
+### Create Spot
+
+Logged in users may create a spot
+<img src="https://i.imgur.com/M8bdcvC.gif">
+
+### Manage Spot
+
+Users that own a spot may edit their spot via 'Manage My Spots' or directly on that Spot Details page
+<img src="https://i.imgur.com/okW0U1A.gif">
+
+### Delete Spot
+
+Users that own a spot may delete their spot
+<img src="https://i.imgur.com/QSlGYYB.gifv">
+
+### Create Booking
+
+Logged in users may create a booking
+<img src="https://i.imgur.com/nBIfIiX.gif">
+
+### Delete Booking
+
+Logged in users may delete a booking
+<img src="https://i.imgur.com/q9Cdk0a.gif">
+
+## ✅ Roadmap
+
+- [ ] Implement Update operation for bookings
+- [ ] Implement Reviews feature
+  - [ ] Create
+  - [ ] Read
+  - [ ] Update
+  - [ ] Delete
+- [ ] Create search functionality to filter spots
+
+## 📁 Installation
+
+1. Clone repo
+
+2. Install dependencies in both backend and frontend directories
+
+```sh
+npm install
+```
+
+3. Run migration and seeders
+
+```sh
+npx dotenv sequelize db:migrate
+npx dotenv sequelize db:seed:all
+```
+
+4. Run servers in both backend and frontend directories
+
+```sh
+npm start
+```
+
+## 📬 Contact me
+
+[![linkedin][linkedin-shield]][linkedin-url]
+
 <!-- MARKDOWN LINKS & IMAGES -->
 
 [javascript-shield]: https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E
@@ -46,6 +113,7 @@ Users can Sign Up, Login, Log Out, and browse all spots
 [react-shield]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-router-shield]: https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white
 [redux-shield]: https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white
+[linkedin-shield]: https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white
 [javascript-url]: https://www.javascript.com/
 [html-url]: https://www.w3.org/html/
 [css-url]: https://www.w3.org/Style/CSS/Overview.en.html
@@ -56,3 +124,4 @@ Users can Sign Up, Login, Log Out, and browse all spots
 [react-url]: https://reactjs.org/
 [react-router-url]: https://reactrouter.com/en/main
 [redux-url]: https://redux.js.org/
+[linkedin-url]: https://www.linkedin.com/in/nguyenpeterviet/
