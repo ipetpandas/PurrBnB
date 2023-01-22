@@ -2,7 +2,7 @@
 
 ## 🐈 **About**
 
-PurrBnB is a full-stack web application cloned and inspired by Airbnb. The build currently supports two features for user interactivity: (1) Spots, which allows users to host their own spot through create, read, update, and delete operations, and (2) Bookings, which allows users to create bookings at those spots through create, read, and delete operations.
+PurrBnB is a full-stack web application cloned and inspired by Airbnb. The build currently supports two features for user interactivity: (1) Spots: allows users to host their own spot through create, read, update, and delete operations, and (2) Bookings: allows users to create bookings at those spots through create, read, and delete operations.
 
 [Click to view PurrBnB Live](https://airbnb-clone-4afc.onrender.com/)
 
