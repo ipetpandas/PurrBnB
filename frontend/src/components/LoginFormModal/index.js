@@ -56,34 +56,34 @@ function LoginFormModal() {
                 ))}
               </div>
               <div className="form-input">
-                <div className="login-input-box">
-                  <label htmlFor="emailInput">Username or Email</label>
+                <div className="input-box-divider">
                   <input
                     id="emailInput"
                     name="emailInput"
                     className="email-input"
-                    placeholder="Username or Email"
+                    // placeholder="Username or Email"
                     type="text"
                     value={credential}
                     onChange={(e) => setCredential(e.target.value)}
                     required
                   />
+                  <label htmlFor="emailInput">Username or Email</label>
                 </div>
-                <div className="password-input-box">
-                  <label htmlFor="passwordInput">Password</label>
+                <div className="input-box-end">
                   <input
                     id="passwordInput"
                     name="passwordInput"
-                    placeholder="Password"
+                    // placeholder="Password"
                     className="password-input"
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
                   />
+                  <label htmlFor="passwordInput">Password</label>
                 </div>
               </div>
-              <button className="login-button" type="submit">
+              <button className="form-button" type="submit">
                 <span>Log In</span>
               </button>
               <div className="or-divider-wrapper">
