@@ -201,8 +201,7 @@ const Spot = () => {
                   </div>
                   <div className="divider"></div>
                   <div className="spot-date-picker">
-                    WILL ADD DATE PICKER HERE MAYBE // TESTING STICKY POSITION
-                    FOR BOOKINGS
+                    Date picker to be added
                     <br></br>
                     <br></br>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
