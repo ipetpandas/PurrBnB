@@ -50,13 +50,13 @@ Logged in users may create a spot
 
 Users that own a spot may edit their spot via 'Manage My Spots' or directly on that Spot Details page
 
-<img src="https://i.imgur.com/okW0U1A.gif">
+<img src="https://i.imgur.com/Eb6Wgx2.gif">
 
 ### Delete Spot
 
 Users that own a spot may delete their spot
 
-<img src="https://i.imgur.com/QSlGYYB.gif">
+<img src="https://i.imgur.com/AHKgi9p.gif">
 
 ### Create Booking
 
