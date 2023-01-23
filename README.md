@@ -32,12 +32,14 @@ PurrBnB is a full-stack web application cloned and inspired by Airbnb. The build
 ### Splash Page
 
 Users can Sign Up, Login, Log Out, and browse all spots
+
 ![img](https://i.imgur.com/ckVEkrw.gif)
 
 ### Spot Details
 
 Users can browse individual spots
-![img](https://i.imgur.com/6cYKXikm.gif)
+
+<img src="https://i.imgur.com/6cYKXik.gif">
 
 ### Create Spot
 
@@ -47,21 +49,25 @@ Logged in users may create a spot
 ### Manage Spot
 
 Users that own a spot may edit their spot via 'Manage My Spots' or directly on that Spot Details page
+
 <img src="https://i.imgur.com/okW0U1A.gif">
 
 ### Delete Spot
 
 Users that own a spot may delete their spot
-<img src="https://i.imgur.com/QSlGYYB.gifv">
+
+<img src="https://i.imgur.com/QSlGYYB.gif">
 
 ### Create Booking
 
 Logged in users may create a booking
+
 <img src="https://i.imgur.com/nBIfIiX.gif">
 
 ### Delete Booking
 
 Logged in users may delete a booking
+
 <img src="https://i.imgur.com/q9Cdk0a.gif">
 
 ## ✅ Roadmap
