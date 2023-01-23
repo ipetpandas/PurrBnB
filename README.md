@@ -39,7 +39,7 @@ Users can Sign Up, Login, Log Out, and browse all spots
 
 Users can browse individual spots
 
-<img src="https://i.imgur.com/6cYKXik.gif">
+<img src="https://i.imgur.com/lTaTpgn.gif">
 
 ### Create Spot
 
