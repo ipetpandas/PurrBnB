@@ -56,7 +56,7 @@ Users that own a spot may edit their spot via 'Manage My Spots' or directly on t
 
 Users that own a spot may delete their spot
 
-<img src="https://i.imgur.com/KcH2HlH.gif">
+<img src="https://i.imgur.com/asYpE2v.gif">
 
 ### Create Booking
 
