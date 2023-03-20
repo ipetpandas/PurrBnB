@@ -36,15 +36,17 @@ const reviewsReducer = (state = initialState, action) => {
       newState = {
         ...state,
         spotReviews: { ...state.userReviews },
-        spot: { ...state.spotReviews },
+        userReviews: { ...state.spotReviews },
       };
 
       action.reviews.Reviews.forEach((review) => {
         newReviewObj[review.id] = review;
       });
 
-      newState.spot = newReviewObj;
+      newState.spotReviews = newReviewObj;
       return newState;
+    default:
+      return state;
   }
 };
 

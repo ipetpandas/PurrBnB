@@ -228,3 +228,16 @@
   display: flex;
   margin-top: 7px;
 }
+
+.reviews-rating {
+  display: flex;
+  flex-direction: row;
+}
+
+.reviews-rating span {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.spot-review-date {
+}

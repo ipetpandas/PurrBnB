@@ -400,7 +400,7 @@ router.put("/:spotId", requireAuth, validateSpot, async (req, res, next) => {
 
 // Get all Reviews by a Spot's id
 router.get("/:spotId/reviews", async (req, res, next) => {
-  const userId = req.user.id;
+  // const userId = req.user.id;
   const spotId = req.params.spotId;
 
   const spot = await Spot.findByPk(spotId);
