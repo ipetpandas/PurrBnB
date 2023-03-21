@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getSpot } from "../../../store/spots";
+import { getSpotReviews } from "../../../store/reviews";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory, useParams } from "react-router";
 import SpotImages from "./SpotImages";
@@ -20,6 +21,9 @@ const Spot = () => {
 
   const singleSpot = useSelector((state) => state.spots.spot);
   const sessionUser = useSelector((state) => state.session.user);
+
+  const allReviews = useSelector((state) => state.reviews.spotReviews);
+  console.log("ALL REVIEWS -------------->", allReviews);
 
   // image grid here
   const spotImages = singleSpot?.SpotImages;
@@ -67,10 +71,12 @@ const Spot = () => {
   // image grid end
 
   useEffect(() => {
-    console.log(`Dispatching getSpot() with id ${spotId}`);
-    dispatch(getSpot(+spotId)).then(() => {
-      setLoaded(true);
-    });
+    // console.log(`Dispatching getSpot() with id ${spotId}`);
+    dispatch(getSpot(+spotId))
+      .then(() => dispatch(getSpotReviews(spotId)))
+      .then(() => {
+        setLoaded(true);
+      });
     // after a valid user deletes a spot from their spot details page, redirect back to home page
     // if (!singleSpot) {
     //   history.push("/");
@@ -201,43 +207,30 @@ const Spot = () => {
                   </div>
                   <div className="divider"></div>
                   <div className="spot-date-picker">
-                    Date picker to be added
-                    <br></br>
-                    <br></br>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Nulla porttitor massa id neque. Lorem ipsum dolor
-                    sit amet consectetur. Dapibus ultrices in iaculis nunc sed
-                    augue. Pharetra massa massa ultricies mi quis hendrerit.
-                    Porttitor rhoncus dolor purus non enim. Feugiat scelerisque
-                    varius morbi enim. Id aliquet risus feugiat in ante metus
-                    dictum. Quis vel eros donec ac odio tempor. Hac habitasse
-                    platea dictumst quisque. Bibendum neque egestas congue
-                    quisque egestas diam in arcu. Eget velit aliquet sagittis id
-                    consectetur purus ut. Nulla facilisi cras fermentum odio eu
-                    feugiat pretium. Donec enim diam vulputate ut pharetra.
-                    Egestas pretium aenean pharetra magna ac placerat. Tempor
-                    commodo ullamcorper a lacus. Tempus egestas sed sed risus
-                    pretium quam. Viverra suspendisse potenti nullam ac tortor
-                    vitae purus faucibus ornare. Fames ac turpis egestas integer
-                    eget aliquet nibh.
-                    <br></br>
-                    <br></br>
-                    Et malesuada fames ac turpis egestas sed tempus. Adipiscing
-                    commodo elit at imperdiet. Quis commodo odio aenean sed
-                    adipiscing diam donec. Velit egestas dui id ornare arcu
-                    odio. Mauris pellentesque pulvinar pellentesque habitant
-                    morbi. Amet est placerat in egestas. Tempor nec feugiat nisl
-                    pretium fusce id velit ut tortor. Eu non diam phasellus
-                    vestibulum lorem. Faucibus et molestie ac feugiat sed lectus
-                    vestibulum mattis ullamcorper. Ultricies leo integer
-                    malesuada nunc vel risus commodo viverra. Commodo sed
-                    egestas egestas fringilla phasellus. Et molestie ac feugiat
-                    sed lectus vestibulum mattis. Nulla facilisi morbi tempus
-                    iaculis urna id. Massa tincidunt dui ut ornare lectus sit
-                    amet. Nec feugiat in fermentum posuere urna nec tincidunt.
-                    Amet tellus cras adipiscing enim. Est pellentesque elit
-                    ullamcorper dignissim cras tincidunt lobortis feugiat.
+                    <div className="reviews-rating">
+                      <span className="star">
+                        <i className="fa-solid fa-star fa-xs"></i>
+                      </span>
+                      <span>{singleSpot.avgStarRating}</span>
+                      <span className="dot-divider">.</span>
+                      <span className="spot-reviews">
+                        {`${singleSpot.numReviews} review${
+                          singleSpot.numReviews === 1 ? "" : "s"
+                        }`}
+                      </span>
+                    </div>
+                    {Object.values(allReviews).map((review) => (
+                      <div className="review-container">
+                        <div className="spot-review-avatar"></div>
+                        <div className="spot-review-author">
+                          {review.User.firstName}
+                        </div>
+                        <div className="spot-review-date">
+                          {getMonthYear(review.createdAt)}
+                        </div>
+                        <div className="spot-review">{review.review}</div>
+                      </div>
+                    ))}
                   </div>
                 </div>
                 <div className="price-parent">
@@ -280,6 +273,18 @@ const Spot = () => {
       </>
     );
   }
+};
+
+const getMonthYear = (date) => {
+  const newDate = new Date(date);
+  const month = newDate.toLocaleString("default", { month: "long" });
+  const year = newDate.getFullYear();
+
+  return (
+    <>
+      {month} {year}
+    </>
+  );
 };
 
 export default Spot;
