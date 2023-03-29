@@ -233,7 +233,7 @@ const Spot = () => {
                       </div>
                     ))}
                   </div> */}
-                  {/* reviews end here */}
+                  {/* review end here */}
                 </div>
                 <div className="price-parent">
                   <div className="price-container">
