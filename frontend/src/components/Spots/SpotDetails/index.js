@@ -206,7 +206,6 @@ const Spot = () => {
                     {singleSpot.description}
                   </div>
                   <div className="divider"></div>
-                  {/* reviews start here */}
                   {/* <div className="spot-date-picker">
                     <div className="reviews-rating">
                       <span className="star">
@@ -233,7 +232,6 @@ const Spot = () => {
                       </div>
                     ))}
                   </div> */}
-                  {/* review end here */}
                 </div>
                 <div className="price-parent">
                   <div className="price-container">
